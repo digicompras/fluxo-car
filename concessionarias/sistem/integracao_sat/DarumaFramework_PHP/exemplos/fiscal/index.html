@@ -1,0 +1,1265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>M&eacute;todos FISCAL</title>
+        <link rel="stylesheet" href="../css/padrao.css" type="text/css"/>
+        <script type="text/javascript" src="../js/geral.js"></script>
+		<script type="text/javascript">
+
+		window.onload = function () {
+                document.getElementById('mnuCupomFiscal').style.display = 'none';
+				document.getElementById('mnuCCD').style.display = 'none';
+				document.getElementById('mnuNaoFiscal').style.display = 'none';
+				document.getElementById('mnuRGerencial').style.display = 'none';
+				document.getElementById('mnuBPassagem').style.display = 'none';
+				document.getElementById('mnuRFiscais').style.display = 'none';
+				document.getElementById('mnuProgECF').style.display = 'none';
+									
+                document.getElementById('iCFAbrir').style.display = 'none';
+				document.getElementById('iCFVender').style.display = 'none';
+				document.getElementById('iCFVenderSemDesc').style.display = 'none';
+				document.getElementById('iCFVenderResumido').style.display = 'none';
+				document.getElementById('iCFLancarDescontoItem').style.display = 'none';
+				document.getElementById('iCFLancarAcrescimoItem').style.display = 'none';
+				document.getElementById('iCFLancarAcrescimoUltimo').style.display = 'none';
+				document.getElementById('iCFLancarDescontoUltimo').style.display = 'none';
+				document.getElementById('iCFCancelarItem').style.display = 'none';
+				document.getElementById('iCFCancelarItemParcial').style.display = 'none';
+				document.getElementById('iCFCancelarUltimoItemParcial').style.display = 'none';
+				document.getElementById('iCFCancelarAcrescimo').style.display = 'none';
+				document.getElementById('iCFCancelarDesconto').style.display = 'none';
+				document.getElementById('iCFTotalizar').style.display = 'none';
+				document.getElementById('iCFEfetuarPagamentoFormatado').style.display = 'none';
+				document.getElementById('iCFEfetuarPagamento').style.display = 'none';
+				document.getElementById('iCFEncerrarConfigMsg').style.display = 'none';
+				document.getElementById('iCFEncerrar').style.display = 'none';
+				document.getElementById('iCFIdentificar').style.display = 'none';
+				document.getElementById('iEstornar').style.display = 'none';
+				
+				document.getElementById('iCCDAbrir').style.display = 'none';
+				document.getElementById('iCCDAbrirSimplificado').style.display = 'none';
+				document.getElementById('iCCDImprimir').style.display = 'none';
+				document.getElementById('iCCDImprimirArquivo').style.display = 'none';
+				document.getElementById('iCCDEstornar').style.display = 'none';
+				document.getElementById('eTEFEsperarArquivo').style.display = 'none';
+				document.getElementById('eTEFSetarFoco').style.display = 'none';
+				document.getElementById('eTEFTravarTeclado').style.display = 'none';
+				document.getElementById('iTEFImprimirResposta').style.display = 'none';
+				document.getElementById('iTEFImprimirRespostaCartao').style.display = 'none';			
+								
+				document.getElementById('iCNFAbrir').style.display = 'none';
+				document.getElementById('iCNFReceber').style.display = 'none';
+				document.getElementById('iCNFReceberSemDesc').style.display = 'none';  
+				document.getElementById('iCNFCancelar').style.display = 'none'; 
+				document.getElementById('iCNFCancelarAcrescimo').style.display = 'none'; 				
+				document.getElementById('iCNFCancelarDesconto').style.display = 'none';
+				document.getElementById('iCNFTotalizar').style.display = 'none';
+				document.getElementById('iCNFEfetuarPagamento').style.display = 'none';
+				document.getElementById('iCNFEfetuarPagamentoFormatado').style.display = 'none';
+				document.getElementById('iCNFEncerrar').style.display = 'none';
+											
+				document.getElementById('iRGAbrir').style.display = 'none';
+				document.getElementById('iRGAbrirIndice').style.display = 'none';
+				document.getElementById('iRGImprimir').style.display = 'none';
+				
+				document.getElementById('iCFBPAbrir').style.display = 'none';
+				document.getElementById('iCFBPVender').style.display = 'none';
+				document.getElementById('confCFBPProgramar').style.display = 'none';				
+				
+				document.getElementById('rLeituraXCustomizada').style.display = 'none';
+				document.getElementById('iReducaoZ').style.display = 'none';
+				document.getElementById('iSangria').style.display = 'none';
+				document.getElementById('iSuprimento').style.display = 'none';
+				document.getElementById('iMFLer').style.display = 'none';
+				document.getElementById('iMFLerSerial').style.display = 'none';
+				
+				document.getElementById('confCadastrarPadrao').style.display = 'none';								
+				document.getElementById('confCadastrar').style.display = 'none';
+				document.getElementById('confProgramarIDLoja').style.display = 'none';
+				document.getElementById('confProgramarOperador').style.display = 'none';
+							
+            }  
+			
+        function Habilitar(objDiv) {
+                  
+            if (document.getElementById(objDiv).style.display == 'none') {
+                document.getElementById(objDiv).style.display = 'block';            
+			} else { 				
+				document.getElementById(objDiv).style.display = 'none';
+            }
+        }
+				
+				       
+
+    </script>
+    </head>
+    <body>
+
+        <div id="pagina">
+
+            <h3>
+                M&eacute;todos FISCAL <br/>
+                <small>
+                    Selecione um m&eacute;todo, passe os par&acirc;metros (se necess&aacute;rio) <br/>
+                    em seguida clique em um dos bot&otilde;es "Executar m&eacute;todo selecionado".
+                </small>
+            </h3>
+
+            <form action = "metodos.FISCAL.php" method="post">
+
+
+			<div class="atalhos">
+				<a href="#cupomfiscal" title="Pula para as fun&ccedil;&otilde;es de Cupom Fiscal">
+				&darr; Cupom Fiscal
+				</a>
+
+				
+				<a href="#credito" title="Pula para as fun&ccedil;&otilde;es de Comprovante Cr&eacute;dito e D&eacute;bito">
+				&darr; CCD - TEF
+				</a>
+				
+				<a href="#nfiscal" title="Pula para as fun&ccedil;&otilde;es de Comprovante n&atilde;o Fiscal">
+				&darr; Comprovante N&atilde;o Fiscal
+				</a>
+				
+				
+				<a href="#gerencial" title="Pula para as fun&ccedil;&otilde;es de Relat&oacute;rio Gerencial">
+				&darr; Relat&oacute;rio Gerencial
+				</a>
+
+				
+				<a href="#bpassagem" title="Pula para as fun&ccedil;&otilde;es de Bilhete de Passagem">
+				&darr; Bilhete de Passagem
+				</a>
+				
+				
+				<a href="#rfiscais" title="Pula para as fun&ccedil;&otilde;es de Relat&oacute;rios">
+				&darr; Relat&oacute;rios Fiscais
+				</a>
+				
+				
+				<a href="#geral" title="Pula para as Fun&ccedil;&otilde;es Gerais">
+				&darr; Fun&ccedil;&otilde;es Gerais
+				</a>			
+
+				<br/>
+		
+
+				
+				<a href="#registro"title="Pula para as fun&ccedil;&otilde;es de Registro">
+				&darr; Registro
+				</a>
+
+			</div>
+
+
+            <ul class="metodos">	
+			
+			<!-- Inicio Metodos Cupom Fiscal -->
+				<hr size="2"  id="cupomfiscal"/>
+				<h3 align="center"><a href="#metodosdfw" onclick="Habilitar('mnuCupomFiscal');"> Cupom Fiscal</a></h3> 
+					<div id="mnuCupomFiscal" >
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFAbrir');" value="iCFAbrir_ECF_Daruma"/>
+							iCFAbrir_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFAbrir_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFAbrir">
+								<input class = "texto" type="text" name="iCFAbrir_ECF_DarumaCpf"/> CPF <br/>
+								<input class = "texto" type="text" name="iCFAbrir_ECF_DarumaNome"/> Nome <br/>
+								<input class = "texto" type="text" name="iCFAbrir_ECF_DarumaEndereco"/> Endere&ccedil;o <br/>
+							</div>
+						</li>
+						
+							
+						<li>
+							<input type="radio" name="metodo" value="iCFAbrirPadrao_ECF_Daruma"/>
+							iCFAbrirPadrao_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFAbrirPadrao_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFVender');" value="iCFVender_ECF_Daruma"/>
+							iCFVender_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFVender_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFVender">
+								<input class = "texto" type="text" name="iCFVender_ECF_DarumaCargaTributaria"/> Carga Tribut&aacute;ria <br/>
+								<input class = "texto" type="text" name="iCFVender_ECF_DarumaQuantidade"/> Quantidade <br/>
+								<input class = "texto" type="text" name="iCFVender_ECF_DarumaPrecoUnitario"/> Preo&ccedil;o Unit&aacute;o <br/>
+								<input class = "texto" type="text" name="iCFVender_ECF_DarumaTipoDescAcresc"/> Tipo (De)Acr&eacute;scimo <br/>
+								<input class = "texto" type="text" name="iCFVender_ECF_DarumaValorDescAcresc"/> Valor (De)Acr&eacute;scimo <br/>
+								<input class = "texto" type="text" name="iCFVender_ECF_DarumaCodigoItem"/> C&oacute;digo Item <br/>
+								<input class = "texto" type="text" name="iCFVender_ECF_DarumaUnidadeMedida"/> Unidade Medida <br/>
+								<input class = "texto" type="text" name="iCFVender_ECF_DarumaDescricaoItem"/> Descri&ccedil;&atilde;o Item <br/>
+							</div>
+						</li>
+						
+						
+						 <li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFVenderSemDesc');" value="iCFVenderSemDesc_ECF_Daruma"/>
+							iCFVenderSemDesc_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFVenderSemDesc_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFVenderSemDesc">
+								<input class = "texto" type="text" name="iCFVenderSemDesc_ECF_DarumaCargaTributaria"/> Carga Tribut&aacute;ria <br/>
+								<input class = "texto" type="text" name="iCFVenderSemDesc_ECF_DarumaQuantidade"/> Quantidade <br/>
+								<input class = "texto" type="text" name="iCFVenderSemDesc_ECF_DarumaPrecoUnitario"/> Preco Unit&aacute;rio <br/>
+								<input class = "texto" type="text" name="iCFVenderSemDesc_ECF_DarumaCodigoItem"/> C&oacute;digo Item <br/>
+								<input class = "texto" type="text" name="iCFVenderSemDesc_ECF_DarumaUnidadeMedida"/> Unidade Medida <br/>
+								<input class = "texto" type="text" name="iCFVenderSemDesc_ECF_DarumaDescricaoItem"/> Descri&ccedil;&atilde;o Item <br/>			
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFVenderResumido');" value="iCFVenderResumido_ECF_Daruma"/>
+							iCFVenderResumido_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFVenderResumido_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFVenderResumido">
+								<input class = "texto" type="text" name="iCFVenderResumido_ECF_DarumaCargaTributaria"/> Carga Tribut&aacute;ria <br/>
+								<input class = "texto" type="text" name="iCFVenderResumido_ECF_DarumaPrecoUnitario"/> Preco Unit&aacute;rio <br/>
+								<input class = "texto" type="text" name="iCFVenderResumido_ECF_DarumaCodigoItem"/> C&oacute;digo Item <br/>
+								<input class = "texto" type="text" name="iCFVenderResumido_ECF_DarumaDescricaoItem"/> Descri&ccedil;&atilde;o Item <br/>
+							</div>
+						</li>	
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFLancarAcrescimoItem');" value="iCFLancarAcrescimoItem_ECF_Daruma"/>
+							iCFLancarAcrescimoItem_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFLancarAcrescimoItem_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFLancarAcrescimoItem">
+								<input class = "texto" type="text" name="iCFLancarAcrescimoItem_ECF_DarumaNumeroItem"/> N&uacute;mero Item <br/>
+								<input class = "texto" type="text" name="iCFLancarAcrescimoItem_ECF_DarumaTipoDescAcres"/> Tipo Desconto Acr&eacute;scimo <br/>
+								<input class = "texto" type="text" name="iCFLancarAcrescimoItem_ECF_DarumaValorDescAcres"/> Valor Desconto Acr&eacute;scimo <br/>
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFLancarDescontoItem');" value="iCFLancarDescontoItem_ECF_Daruma"/>
+							iCFLancarDescontoItem_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFLancarDescontoItem_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFLancarDescontoItem">
+								<input class = "texto" type="text" name="iCFLancarDescontoItem_ECF_DarumaNumeroItem"/> N&uacute;mero Item <br/>
+								<input class = "texto" type="text" name="iCFLancarDescontoItem_ECF_DarumaTipoDescAcres"/> Tipo Desconto Acr&eacute;scimo <br/>
+								<input class = "texto" type="text" name="iCFLancarDescontoItem_ECF_DarumaValorDescAcres"/> Valor Desconto Acr&eacute;scimo <br/>
+							</div>	
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFLancarAcrescimoUltimo');" value="iCFLancarAcrescimoUltimoItem_ECF_Daruma"/>
+							iCFLancarAcrescimoUltimoItem_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFLancarAcrescimoUltimoItem_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFLancarAcrescimoUltimo">
+								<input class = "texto" type="text" name="iCFLancarAcrescimoUltimoItem_ECF_DarumaTipoDescAcres"/> Tipo Desconto Acr&eacute;scimo <br/>
+								<input class = "texto" type="text" name="iCFLancarAcrescimoUltimoItem_ECF_DarumaValorDescAcres"/> Valor Desconto Acr&eacute;scimo <br/>
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFLancarDescontoUltimo');" value="iCFLancarDescontoUltimoItem_ECF_Daruma"/>
+							iCFLancarDescontoUltimoItem_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFLancarDescontoUltimoItem_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFLancarDescontoUltimo">
+								<input class = "texto" type="text" name="iCFLancarDescontoUltimoItem_ECF_DarumaTipoDescAcres"/> Tipo Desconto Acr&eacute;scimo <br/>
+								<input class = "texto" type="text" name="iCFLancarDescontoUltimoItem_ECF_DarumaValorDescAcres"/> Valor Desconto Acr&eacute;scimo <br/>
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFCancelarItem');" value="iCFCancelarItem_ECF_Daruma"/>
+							iCFCancelarItem_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFCancelarItem_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFCancelarItem">
+								<input class = "texto" type="text" name="iCFCancelarItem_ECF_DarumaNumeroItem"/> N&uacute;mero Item <br/>
+							</div>
+						</li>
+						
+						
+						 <li>
+							<input type="radio" name="metodo" value="iCFCancelarUltimoItem_ECF_Daruma"/>
+							iCFCancelarUltimoItem_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFCancelarUltimoItem_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFCancelarItemParcial');" value="iCFCancelarItemParcial_ECF_Daruma"/>
+							iCFCancelarItemParcial_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFCancelarItemParcial_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFCancelarItemParcial">
+								<input class = "texto" type="text" name="iCFCancelarItemParcial_ECF_DarumaNumeroItem"/> N&uacute;mero Item <br/>
+								<input class = "texto" type="text" name="iCFCancelarItemParcial_ECF_DarumaQuantidade"/> Quantidade <br/>
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFCancelarUltimoItemParcial');" value="iCFCancelarUltimoItemParcial_ECF_Daruma"/>
+							iCFCancelarUltimoItemParcial_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFCancelarUltimoItemParcial_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFCancelarUltimoItemParcial">
+								<input class = "texto" type="text" name="iCFCancelarUltimoItemParcial_ECF_DarumaQuantidade"/> Quantidade <br/>
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFCancelarAcrescimo');" value="iCFCancelarAcrescimoItem_ECF_Daruma"/>
+							iCFCancelarAcrescimoItem_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFCancelarAcrescimoItem_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFCancelarAcrescimo">
+								<input class = "texto" type="text" name="iCFCancelarAcrescimoItem_ECF_DarumaNumeroItem"/> N&uacute;mero Item <br/>
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" value="iCFCancelarAcrescimoUltimoItem_ECF_Daruma"/>
+							iCFCancelarAcrescimoUltimoItem_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFCancelarAcrescimoUltimoItem_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFCancelarDesconto');" value="iCFCancelarDescontoItem_ECF_Daruma"/>
+							iCFCancelarDescontoItem_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFCancelarDescontoItem_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFCancelarDesconto">
+								<input class = "texto" type="text" name="iCFCancelarDescontoItem_ECF_DarumaNumeroItem"/> N&uacute;mero Item <br/>
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" value="iCFCancelarDescontoUltimoItem_ECF_Daruma"/>
+							iCFCancelarDescontoUltimoItem_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFCancelarDescontoUltimoItem_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFTotalizar');" value="iCFTotalizarCupom_ECF_Daruma"/>
+							iCFTotalizarCupom_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFTotalizarCupom_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFTotalizar">
+								<input class = "texto" type="text" name="iCFTotalizarCupom_ECF_DarumaTipoDescAcres"/> Tipo Desconto Acr&eacute;scimo <br/>
+								<input class = "texto" type="text" name="iCFTotalizarCupom_ECF_DarumaValorDescAcres"/> Valor Desconto Acr&eacute;scimo <br/>
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" value="iCFTotalizarCupomPadrao_ECF_Daruma"/>
+							iCFTotalizarCupomPadrao_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFTotalizarCupomPadrao_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" value="iCFCancelarAcrescimoSubtotal_ECF_Daruma"/>
+							iCFCancelarAcrescimoSubtotal_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFCancelarAcrescimoSubtotal_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" value="iCFCancelarDescontoSubtotal_ECF_Daruma"/>
+							iCFCancelarDescontoSubtotal_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFCancelarDescontoSubtotal_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" value="iCFEfetuarPagamentoPadrao_ECF_Daruma"/>
+							iCFEfetuarPagamentoPadrao_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFEfetuarPagamentoPadrao_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFEfetuarPagamentoFormatado');" value="iCFEfetuarPagamentoFormatado_ECF_Daruma"/>
+							iCFEfetuarPagamentoFormatado_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFEfetuarPagamentoFormatado_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFEfetuarPagamentoFormatado">
+								<input class = "texto" type="text" name="iCFEfetuarPagamentoFormatado_ECF_DarumaFormaPagamento"/> Forma Pagamento <br/>
+								<input class = "texto" type="text" name="iCFEfetuarPagamentoFormatado_ECF_DarumaValor"/> Valor <br/>
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFEfetuarPagamento');" value="iCFEfetuarPagamento_ECF_Daruma"/>
+							iCFEfetuarPagamento_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFEfetuarPagamento_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFEfetuarPagamento">
+								<input class = "texto" type="text" name="iCFEfetuarPagamento_ECF_DarumaFormaPagamento"/> Forma Pagamento <br/>
+								<input class = "texto" type="text" name="iCFEfetuarPagamento_ECF_DarumaValor"/> Valor <br/>
+								<textarea class="texto" name="iCFEfetuarPagamento_ECF_DarumaInformacao"></textarea> Iforma&ccedil;&atilde;o adicional
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" value="iCFEncerrarPadrao_ECF_Daruma"/>
+							iCFEncerrarPadrao_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFEncerrarPadrao_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFEncerrarConfigMsg');" value="iCFEncerrarConfigMsg_ECF_Daruma"/>
+							iCFEncerrarConfigMsg_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFEncerrarConfigMsg_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFEncerrarConfigMsg"
+								<textarea class="texto" name="iCFEncerrarConfigMsg_ECF_DarumaMensagem"></textarea> Mensagem
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" value="iCFEncerrarResumido_ECF_Daruma"/>
+							iCFEncerrarResumido_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFEncerrarResumido_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFEncerrar');" value="iCFEncerrar_ECF_Daruma"/>
+							iCFEncerrar_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFEncerrar_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFEncerrar">
+								<input class = "texto" type="text" name="iCFEncerrar_ECF_DarumaCupomAdicional"/> Cupom Adicional <br/>
+								<textarea class="texto" name="iCFEncerrar_ECF_DarumaMensagem"></textarea> Mensagem
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" value="iCFEmitirCupomAdicional_ECF_Daruma"/>
+							iCFEmitirCupomAdicional_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFEmitirCupomAdicional_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" value="iCFCancelar_ECF_Daruma"/>
+							iCFCancelar_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFCancelar_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFIdentificar');" value="iCFIdentificarConsumidor_ECF_Daruma"/>
+							iCFIdentificarConsumidor_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iCFIdentificarConsumidor_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFIdentificar">
+								<input class = "texto" type="text" name="iCFIdentificarConsumidor_ECF_DarumaNome"/> Nome <br/>
+								<input class = "texto" type="text" name="iCFIdentificarConsumidor_ECF_DarumaEndereco"/> Endere&ccedil;o <br/>
+								<input class = "texto" type="text" name="iCFIdentificarConsumidor_ECF_DarumaCpf"/> CPF <br/>
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iEstornar');" value="iEstornarPagamento_ECF_Daruma"/>
+							iEstornarPagamento_ECF_Daruma <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Cupom_Fiscal/iEstornarPagamento_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iEstornar">
+								<input class = "texto" type="text" name="iEstornarPagamento_ECF_DarumaFPGTOEstornada"/> Forma Pgto Estornada <br/>
+								<input class = "texto" type="text" name="iEstornarPagamento_ECF_DarumaFPGTOEfetiva"/> Forma Pgto Efetiva <br/>
+								<input class = "texto" type="text" name="iEstornarPagamento_ECF_DarumaValor"/> Valor <br/>
+								<input class = "texto" type="text" name="iEstornarPagamento_ECF_DarumaInfo"/> Informação Adicional <br/>
+							</div>
+						</li>
+							
+						
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/><center>
+					</div>
+				<!-- Fim Metodos Cupom Fiscal -->	
+				
+				
+				<!-- Inicio Metodos CCD -->
+				<hr size="2"  id="credito"/>
+				<h3 align="center"><a href="#metodosdfw" onclick="Habilitar('mnuCCD');"> CCD - TEF</a></h3> 
+					<div id="mnuCCD" >
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCCDAbrir');" value="iCCDAbrir_ECF_Daruma"/>
+							iCCDAbrir_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Credito_Debito_CCD/iccdabrir_ecf_daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCCDAbrir">
+								<input class = "texto" type="text" name="iCCDAbrir_ECF_DarumaFormaPagamento"/> Forma Pagamento <br/>
+								<input class = "texto" type="text" name="iCCDAbrir_ECF_DarumaParcelas"/> Parcelas <br/>
+								<input class = "texto" type="text" name="iCCDAbrir_ECF_DarumaDocumentoOrigem"/> Documento Origem <br/>
+								<input class = "texto" type="text" name="iCCDAbrir_ECF_DarumaValor"/> Valor <br/>
+								<input class = "texto" type="text" name="iCCDAbrir_ECF_DarumaCPF"/> CPF <br/>
+								<input class = "texto" type="text" name="iCCDAbrir_ECF_DarumaNome"/> Nome <br/>
+								<input class = "texto" type="text" name="iCCDAbrir_ECF_DarumaEndereco"/> Endere&ccedil;o <br/>
+							</div>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCCDAbrirSimplificado');" value="iCCDAbrirSimplificado_ECF_Daruma"/>
+							iCCDAbrirSimplificado_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Credito_Debito_CCD/iccdabrirsimplificado_ecf_daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCCDAbrirSimplificado">
+								<input class = "texto" type="text" name="iCCDAbrirSimplificado_ECF_DarumaFormaPagamento"/> Forma Pagamento <br/>
+								<input class = "texto" type="text" name="iCCDAbrirSimplificado_ECF_DarumaParcelas"/> Parcelas <br/>
+								<input class = "texto" type="text" name="iCCDAbrirSimplificado_ECF_DarumaDocumentoOrigem"/> Documento Origem <br/>
+								<input class = "texto" type="text" name="iCCDAbrirSimplificado_ECF_DarumaValor"/> Valor <br/>
+							</div>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" value="iCCDAbrirPadrao_ECF_Daruma"/>
+							iCCDAbrirPadrao_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Credito_Debito_CCD/iccdabrirpadrao_ecf_daruma.htm" target="_blank"> ?</a></br>
+						</li>
+		    
+			
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCCDImprimir');" value="iCCDImprimirTexto_ECF_Daruma"/>
+							iCCDImprimirTexto_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Credito_Debito_CCD/iccdimprimirtexto_ecf_daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCCDImprimir">
+								<textarea class="texto" name="iCCDImprimirTexto_ECF_DarumaTexto"></textarea> Texto <br/>
+							</div>
+						</li>
+		    
+			
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCCDImprimirArquivo');" value="iCCDImprimirArquivo_ECF_Daruma"/>
+							iCCDImprimirArquivo_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Credito_Debito_CCD/iccdimprimirarquivo_ecf_daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCCDImprimirArquivo">
+								<input class = "texto" type="text" name="iCCDImprimirArquivo_ECF_DarumaArquivo"/> Arquivo Origem <br/>
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" value="iCCDFechar_ECF_Daruma"/>
+							iCCDFechar_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Credito_Debito_CCD/iccdfechar_ecf_daruma.htm" target="_blank"> ?</a></br>
+						</li>
+		    	
+				
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCCDEstornar');" value="iCCDEstornar_ECF_Daruma"/>
+							iCCDEstornar_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Credito_Debito_CCD/iccdestornar_ecf_daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCCDEstornar">
+								<input class = "texto" type="text" name="iCCDEstornar_ECF_DarumaCOO"/> COO <br/>
+								<input class = "texto" type="text" name="iCCDEstornar_ECF_DarumaCPF"/> CPF <br/>
+								<input class = "texto" type="text" name="iCCDEstornar_ECF_DarumaNome"/> Nome <br/>
+								<input class = "texto" type="text" name="iCCDEstornar_ECF_DarumaEndereco"/> Endere&ccedil;o <br/>
+							</div>
+						</li>
+			
+			
+						<li>
+							<input type="radio" name="metodo" value="iCCDEstornarPadrao_ECF_Daruma"/>
+							iCCDEstornarPadrao_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Credito_Debito_CCD/iccdestornarpadrao_ecf_daruma.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" value="iCCDSegundaVia_ECF_Daruma"/>
+							iCCDSegundaVia_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Credito_Debito_CCD/iccdsegundavia_ecf_daruma.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('eTEFEsperarArquivo');" value="eTEF_EsperarArquivo_ECF_Daruma"/>
+							eTEF_EsperarArquivo_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Credito_Debito_CCD/Funcoes_TEF/eTEF_EsperarArquivo_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="eTEFEsperarArquivo">
+								<input class = "texto" type="text" name="eTEF_EsperarArquivo_ECF_DarumaArquivo"/> Arquivo <br/>
+								<input class = "texto" type="text" name="eTEF_EsperarArquivo_ECF_DarumaTempo"/> Tempo <br/>
+								<input class = "texto" type="text" name="eTEF_EsperarArquivo_ECF_DarumaTravar"/> Travar <br/>
+							</div>
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('eTEFSetarFoco');" value="eTEF_SetarFoco_ECF_Daruma"/>
+							eTEF_SetarFoco_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Credito_Debito_CCD/Funcoes_TEF/eTEF_SetarFoco_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="eTEFSetarFoco">
+								<input class = "texto" type="text" name="eTEF_SetarFoco_ECF_DarumaTela"/> Tela <br/>
+							</div>
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('eTEFTravarTeclado');" value="eTEF_TravarTeclado_ECF_Daruma"/>
+							eTEF_TravarTeclado_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Credito_Debito_CCD/Funcoes_TEF/eTEF_TravarTeclado_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="eTEFTravarTeclado">
+								<input class = "texto" type="text" name="eTEF_TravarTeclado_ECF_DarumaTravar"/> True/False <br/>
+							</div>
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" value="iTEF_Fechar_ECF_Daruma"/>
+							iTEF_Fechar_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Credito_Debito_CCD/Funcoes_TEF/iTEF_Fechar_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iTEFImprimirResposta');" value="iTEF_ImprimirResposta_ECF_Daruma"/>
+							iTEF_ImprimirResposta_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Credito_Debito_CCD/Funcoes_TEF/iTEF_ImprimirResposta_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iTEFImprimirResposta">
+								<input class = "texto" type="text" name="iTEF_ImprimirResposta_ECF_DarumaArquivo"/> Arquivo <br/>
+								<input class = "texto" type="text" name="iTEF_ImprimirResposta_ECF_DarumaTravar"/> Tempo <br/>
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iTEFImprimirRespostaCartao');" value="iTEF_ImprimirRespostaCartao_ECF_Daruma"/>
+							iTEF_ImprimirRespostaCartao_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Credito_Debito_CCD/Funcoes_TEF/iTEF_ImprimirRespostaCartao_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iTEFImprimirRespostaCartao">
+								<input class = "texto" type="text" name="iTEF_ImprimirResposta_ECF_DarumaArquivo"/> Arquivo <br/>
+								<input class = "texto" type="text" name="iTEF_ImprimirResposta_ECF_DarumaTravar"/> Tempo <br/>
+								<input class = "texto" type="text" name="iTEF_ImprimirRespostaCartao_ECF_DarumaForma"/> Forma Pagamento <br/>
+								<input class = "texto" type="text" name="iTEF_ImprimirRespostaCartao_ECF_DarumaValor"/> Valor <br/>
+							</div>
+						</li>
+						
+						
+					
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/><center>
+					</div>
+				<!-- Fim Metodos CCD -->	
+				
+				
+				<!-- Inicio Metodos Comprovante Nao Fiscal -->
+				<hr size="2"  id="nfiscal"/>
+				<h3 align="center"><a href="#metodosdfw" onclick="Habilitar('mnuNaoFiscal');"> Comprovante N&atilde;o Fiscal</a></h3> 
+					<div id="mnuNaoFiscal" >	
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCNFAbrir');" value="iCNFAbrir_ECF_Daruma"/>
+							iCNFAbrir_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFAbrir_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCNFAbrir">
+								<input class = "texto" type="text" name="iCNFAbrir_ECF_DarumaCpf"/> CPF <br/>
+								<input class = "texto" type="text" name="iCNFAbrir_ECF_DarumaNome"/> Nome <br/>
+								<input class = "texto" type="text" name="iCNFAbrir_ECF_DarumaEndereco"/> Endere&ccedil;o <br/>
+							</div>
+						</li>
+						
+							
+						<li>
+							<input type="radio" name="metodo" value="iCNFAbrirPadrao_ECF_Daruma"/>
+							iCNFAbrirPadrao_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFAbrirPadrao_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+					
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCNFReceber');" value="iCNFReceber_ECF_Daruma"/>
+							iCNFReceber_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFReceber_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCNFReceber">
+								<input class = "texto" type="text" name="iCNFReceber_ECF_DarumaIndice"/> Indice Totalizador <br/>
+								<input class = "texto" type="text" name="iCNFReceber_ECF_DarumaValor"/> Valor Forma de Pagamento <br/>
+								<input class = "texto" type="text" name="iCNFReceber_ECF_DarumaTipo"/> Tipo Desconto/Acrescimo <br/>
+								<input class = "texto" type="text" name="iCNFReceber_ECF_DarumaValorDesc"/> Valor Desconto/Acrescimo <br/>
+							</div>
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCNFReceberSemDesc');" value="iCNFReceberSemDesc_ECF_Daruma"/>
+							iCNFReceberSemDesc_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFReceberSemDesc_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCNFReceberSemDesc">
+								<input class = "texto" type="text" name="iCNFReceberSemDesc_ECF_DarumaIndice"/> Indice Totalizador <br/>
+								<input class = "texto" type="text" name="iCNFReceberSemDesc_ECF_DarumaValor"/> Valor Forma de Pagamento <br/>
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCNFCancelar');" value="iCNFCancelarItem_ECF_Daruma"/>
+							iCNFCancelarItem_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFCancelarItem_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCNFCancelar">
+								<input class = "texto" type="text" name="iCNFCancelarItem_ECF_DarumaNumeroItem"/> N&uacute;mero Item <br/>
+							</div>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" value="iCNFCancelarUltimoItem_ECF_Daruma"/>
+							iCNFCancelarUltimoItem_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFCancelarUltimoItem_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCNFCancelarAcrescimo');" value="iCNFCancelarAcrescimoItem_ECF_Daruma"/>
+							iCNFCancelarAcrescimoItem_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFCancelarAcrescimoItem_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCNFCancelarAcrescimo">
+								<input class = "texto" type="text" name="iCNFCancelarAcrescimoItem_ECF_DarumaNumeroItem"/> N&uacute;mero Item <br/>
+							</div>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" value="iCNFCancelarAcrescimoUltimoItem_ECF_Daruma"/>
+							iCNFCancelarAcrescimoUltimoItem_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFCancelarAcrescimoUltimoItem_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCNFCancelarDesconto');" value="iCNFCancelarDescontoItem_ECF_Daruma"/>
+							iCNFCancelarDescontoItem_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFCancelarDescontoItem_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCNFCancelarDesconto">
+								<input class = "texto" type="text" name="iCNFCancelarDescontoItem_ECF_DarumaNumeroItem"/> N&uacute;mero Item <br/>
+							</div>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" value="iCNFCancelarDescontoUltimoItem_ECF_Daruma"/>
+							iCNFCancelarDescontoUltimoItem_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFCancelarDescontoUltimoItem_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+						
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCNFTotalizar');" value="iCNFTotalizarComprovante_ECF_Daruma"/>
+							iCNFTotalizarComprovante_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFTotalizarComprovante_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCNFTotalizar">
+								<input class = "texto" type="text" name="iCNFTotalizarComprovante_ECF_DarumaTipoDescAcres"/> Tipo Desconto Acr&eacute;scimo <br/>
+								<input class = "texto" type="text" name="iCNFTotalizarComprovante_ECF_DarumaValorDescAcres"/> Valor Desconto Acr&eacute;scimo <br/>
+							</div>	
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" value="iCNFTotalizarComprovantePadrao_ECF_Daruma"/>
+							iCNFTotalizarComprovantePadrao_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFTotalizarComprovantePadrao_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" value="iCNFCancelarAcrescimoSubtotal_ECF_Daruma"/>
+							iCNFCancelarAcrescimoSubtotal_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFReceberSemDesc_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" value="iCNFCancelarDescontoSubtotal_ECF_Daruma"/>
+							iCNFCancelarDescontoSubtotal_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFCancelarAcrescimoSubtotal_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCNFEfetuarPagamento');" value="iCNFEfetuarPagamento_ECF_Daruma"/>
+							iCNFEfetuarPagamento_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFEfetuarPagamento_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCNFEfetuarPagamento">
+								<input class = "texto" type="text" name="iCNFEfetuarPagamento_ECF_DarumaFormaPagamento"/> Forma Pagamento <br/>
+								<input class = "texto" type="text" name="iCNFEfetuarPagamento_ECF_DarumaValor"/> Valor <br/>
+							</div>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCNFEfetuarPagamentoFormatado');" value="iCNFEfetuarPagamentoFormatado_ECF_Daruma"/>
+							iCNFEfetuarPagamentoFormatado_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFEfetuarPagamentoFormatado_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCNFEfetuarPagamentoFormatado">
+								<input class = "texto" type="text" name="iCNFEfetuarPagamentoFormatado_ECF_DarumaFormaPagamento"/> Forma Pagamento <br/>
+								<input class = "texto" type="text" name="iCNFEfetuarPagamentoFormatado_ECF_DarumaValor"/> Valor <br/>
+								<textarea class="texto" name="iCNFEfetuarPagamentoFormatado_ECF_DarumaMensagem"></textarea> Iforma&ccedil;&atilde;o adicional
+							</div>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" value="iCNFEfetuarPagamentoPadrao_ECF_Daruma"/>
+							iCNFEfetuarPagamentoPadrao_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFEfetuarPagamentoPadrao_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCNFEncerrar');" value="iCNFEncerrar_ECF_Daruma"/>
+							iCNFEncerrar_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFEncerrar_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCNFEncerrar">
+								<textarea class="texto" name="iCNFEncerrar_ECF_DarumaMensagem"></textarea> Mensagem <br/>
+							</div>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" value="iCNFEncerrarPadrao_ECF_Daruma"/>
+							iCNFEncerrarPadrao_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFEncerrarPadrao_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" value="iCNFCancelar_ECF_Daruma"/>
+							iCNFCancelar_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Comprovante_Nao_Fiscal/iCNFCancelar_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+					
+					
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/><center>
+					</div>
+				<!-- Fim Metodos Comprovante Nao Fiscal -->
+		   
+		   
+				<!-- Inicio Metodos Relatorio Gerencial -->
+				<hr size="2"  id="gerencial"/>
+				<h3 align="center"><a href="#metodosdfw" onclick="Habilitar('mnuRGerencial');"> Relat&oacute;rio Gerencial</a></h3> 
+					<div id="mnuRGerencial" >
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iRGAbrir');" value="iRGAbrir_ECF_Daruma"/>
+							iRGAbrir_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Relatorio_Gerencial/iRGAbrir_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iRGAbrir">
+								<input class = "texto" type="text" name="iRGAbrir_ECF_DarumaNomeRG"/> Nome RG <br/>
+							</div>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iRGAbrirIndice');" value="iRGAbrirIndice_ECF_Daruma"/>
+							iRGAbrirIndice_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Relatorio_Gerencial/iRGAbrirIndice_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iRGAbrirIndice">
+								<input class = "texto" type="text" name="iRGAbrirIndice_ECF_DarumaIndiceRG"/> Indice RG <br/>
+							</div>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" value="iRGAbrirPadrao_ECF_Daruma"/>
+							iRGAbrirPadrao_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Relatorio_Gerencial/iRGAbrirPadrao_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iRGImprimir');" value="iRGImprimirTexto_ECF_Daruma"/>
+							iRGImprimirTexto_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Relatorio_Gerencial/iRGImprimirTexto_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iRGImprimir">
+								<textarea class="texto" name="iRGImprimirTexto_ECF_DarumaTexto"></textarea> Texto
+							</div>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" value="iRGFechar_ECF_Daruma"/>
+							iRGFechar_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Relatorio_Gerencial/iRGFechar_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+		    
+							
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/><center>
+					</div>
+				<!-- Fim Metodos Relatorio Gerencial -->
+
+				
+				<!-- Inicio Metodos Relatorio Gerencial -->
+				<hr size="2"  id="bpassagem"/>
+				<h3 align="center"><a href="#metodosdfw" onclick="Habilitar('mnuBPassagem');"> Bilhete de Passagem</a></h3> 
+					<div id="mnuBPassagem" >
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFBPAbrir');" value="iCFBPAbrir_ECF_Daruma"/>
+							iCFBPAbrir_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Bilhete_de_Passagem/iCFBPAbrir_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFBPAbrir">
+								<input class = "texto" type="text" name="iCFBPAbrir_ECF_DarumaOrigem"/> Origem <br/>
+								<input class = "texto" type="text" name="iCFBPAbrir_ECF_DarumaDestino"/> Destino <br/>
+								<input class = "texto" type="text" name="iCFBPAbrir_ECF_DarumaUFDestino"/> UF Destino <br/>
+								<input class = "texto" type="text" name="iCFBPAbrir_ECF_DarumaPercurso"/> Percurso <br/>
+								<input class = "texto" type="text" name="iCFBPAbrir_ECF_DarumaPrestadora"/> Prestadora <br/>
+								<input class = "texto" type="text" name="iCFBPAbrir_ECF_DarumaPlataforma"/> Plataforma <br/>
+								<input class = "texto" type="text" name="iCFBPAbrir_ECF_DarumaPoltrona"/> Poltrona <br/>
+								<input class = "texto" type="text" name="iCFBPAbrir_ECF_DarumaModalidade"/> Modalidade <br/>
+								<input class = "texto" type="text" name="iCFBPAbrir_ECF_DarumaCategoria"/> Categoria <br/>
+								<input class = "texto" type="text" name="iCFBPAbrir_ECF_DarumaData"/> Data Embarque <br/>
+								<input class = "texto" type="text" name="iCFBPAbrir_ECF_DarumaRG"/> RG Passageiro <br/>
+								<input class = "texto" type="text" name="iCFBPAbrir_ECF_DarumaNome"/> Nome Passageiro <br/>
+								<input class = "texto" type="text" name="iCFBPAbrir_ECF_DarumaEndereco"/> Endere&ccedil;o Passageiro <br/>
+							</div>
+						</li>
+												
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iCFBPVender');" value="iCFBPVender_ECF_Daruma"/>
+							iCFBPVender_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Bilhete_de_Passagem/iCFBPVender_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iCFBPVender">
+								<input class = "texto" type="text" name="iCFBPVender_ECF_DarumaCargaTributaria"/> Carga Tribut&aacute;ria <br/>
+								<input class = "texto" type="text" name="iCFBPVender_ECF_DarumaPrecoUnitario"/> Pre&ccedil;o Unit&aacute;o <br/>
+								<input class = "texto" type="text" name="iCFBPVender_ECF_DarumaTipoDescAcresc"/> Tipo (De)Acr&eacute;scimo <br/>
+								<input class = "texto" type="text" name="iCFBPVender_ECF_DarumaValorDescAcresc"/> Valor (De)Acr&eacute;scimo <br/>
+								<input class = "texto" type="text" name="iCFBPVender_ECF_DarumaDescricaoItem"/> Descri&ccedil;&atilde;o Item <br/>
+							</div>
+						</li>
+					
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('confCFBPProgramar');" value="confCFBPProgramarUF_ECF_Daruma"/>
+							confCFBPProgramarUF_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Bilhete_de_Passagem/confCFBPProgramarUF_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="confCFBPProgramar">
+								<input class = "texto" type="text" name="confCFBPProgramarUF_ECF_DarumaUF"/> Carga Tribut&aacute;ria <br/>
+							</div>
+						</li>
+						
+					
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/><center>
+					</div>
+				<!-- Fim Metodos Relatorio Gerencial -->
+		    
+			
+				<!-- Inicio Metodos Relatorios Fiscais -->
+				<hr size="2"  id="rfiscais"/>
+				<h3 align="center"><a href="#metodosdfw" onclick="Habilitar('mnuRFiscais');"> Relat&oacute;rios Fiscais</a></h3> 
+					<div id="mnuRFiscais" >
+						<li>
+							<input type="radio" name="metodo" value="iLeituraX_ECF_Daruma"/>
+							iLeituraX_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Relatorios_Fiscais/iLeituraX_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" value="rLeituraX_ECF_Daruma"/>
+							rLeituraX_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Relatorios_Fiscais/rLeituraX_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('rLeituraXCustomizada');" value="rLeituraXCustomizada_ECF_Daruma"/>
+							rLeituraXCustomizada_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Relatorios_Fiscais/rLeituraXCustomizada_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="rLeituraXCustomizada">
+								<input class = "texto" type="text" name="rLeituraXCustomizada_ECF_DarumasCaminho"/> Caminho <br/>
+							</div>
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iReducaoZ');" value="iReducaoZ_ECF_Daruma"/>
+							iReducaoZ_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Relatorios_Fiscais/iReducaoZ_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iReducaoZ">
+								<input class = "texto" type="text" name="iReducaoZ_ECF_DarumaData"/> Data <br/>
+								<input class = "texto" type="text" name="iReducaoZ_ECF_DarumaHora"/> Hora <br/>
+							</div>
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" value="iSangriaPadrao_ECF_Daruma"/>
+							iSangriaPadrao_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Relatorios_Fiscais/iSangriaPadrao_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iSangria');" value="iSangria_ECF_Daruma"/>
+							iSangria_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Relatorios_Fiscais/iSangria_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iSangria">
+								<input class = "texto" type="text" name="iSangria_ECF_DarumaValor"/> Valor <br/>
+								<textarea class="texto" name="iSangria_ECF_DarumaMensagem"></textarea> Mensagem <br/>
+							</div>
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" value="iSuprimentoPadrao_ECF_Daruma"/>
+							iSuprimentoPadrao_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Relatorios_Fiscais/iSuprimentoPadrao_ECF_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iSupriimento');" value="iSuprimento_ECF_Daruma"/>
+							iSuprimento_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Relatorios_Fiscais/iSuprimento_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iSuprimento">
+								<input class = "texto" type="text" name="iSuprimento_ECF_DarumaValor"/> Valor <br/>
+								<textarea class="texto" name="iSuprimento_ECF_DarumaMensagem"></textarea> Mensagem <br/>
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iMFLer');" value="iMFLer_ECF_Daruma"/>
+							iMFLer_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Relatorios_Fiscais/iMFLer_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iMFLer">
+								<input class = "texto" type="text" name="iMFLer_ECF_DarumaInicial"/> Intervalo Inicial<br/>
+								<input class = "texto" type="text" name="iMFLer_ECF_DarumaFinal"/> Intervalo Final<br/>
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iMFLerSerial');" value="iMFLerSerial_ECF_Daruma"/>
+							iMFLerSerial_ECF_Daruma <a href="http://www.desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Relatorios_Fiscais/iMFLerSerial_ECF_Daruma.htm" target="_blank"> ?</a></br>
+							<div id="iMFLerSerial">
+								<input class = "texto" type="text" name="iMFLerSerial_ECF_DarumaInicial"/> Intervalo Inicial<br/>
+								<input class = "texto" type="text" name="iMFLerSerial_ECF_DarumaFinal"/> Intervalo Final<br/>
+							</div>
+						</li>
+					
+					
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/><center>
+					</div>
+				<!-- Fim Metodos Relatorios Fiscais -->
+					
+		    
+			
+				<!-- Inicio Metodos Programacao ECF -->
+				<hr size="2"  id="rfiscais"/>
+				<h3 align="center"><a href="#metodosdfw" onclick="Habilitar('mnuProgECF');"> Programa&ccedil;&otilde;o do ECF</a></h3> 
+					<div id="mnuProgECF" >
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('confCadastrarPadrao');" value="confCadastrarPadrao_ECF_Daruma"/>
+							confCadastrarPadrao_ECF_Daruma <br/>
+							<div id="confCadastrarPadrao">
+								<input class = "texto" type="text" name="confCadastrarPadrao_ECF_DarumaCadastrar"/> Cadastrar <br/>
+								<input class = "texto" type="text" name="confCadastrarPadrao_ECF_DarumaValor"/> Valor <br/>
+							</div>
+						</li>
+		    
+
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('confCadastrar');" value="confCadastrar_ECF_Daruma"/>
+							confCadastrar_ECF_Daruma <br/>
+							<div id="confCadastrar">
+								<input class = "texto" type="text" name="confCadastrar_ECF_DarumaCadastrar"/> Cadastrar <br/>
+								<input class = "texto" type="text" name="confCadastrar_ECF_DarumaValor"/> Valor <br/>
+								<input class = "texto" type="text" name="confCadastrar_ECF_DarumaSeparador"/> Separador <br/>
+							</div>
+						</li>
+		    		    
+						
+						<li>
+							<input type="radio" name="metodo" value="confHabilitarHorarioVerao_ECF_Daruma"/>
+							confHabilitarHorarioVerao_ECF_Daruma <br/>
+						</li>
+						
+
+						<li>
+							<input type="radio" name="metodo" value="confDesabilitarHorarioVerao_ECF_Daruma"/>
+							confDesabilitarHorarioVerao_ECF_Daruma <br/>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" value="confHabilitarModoPreVenda_ECF_Daruma"/>
+							confHabilitarModoPreVenda_ECF_Daruma <br/>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" value="confDesabilitarModoPreVenda_ECF_Daruma"/>
+							confDesabilitarModoPreVenda_ECF_Daruma <br/>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('confProgramarIDLoja');" value="confProgramarIDLoja_ECF_Daruma"/>
+							confProgramarIDLoja_ECF_Daruma <br/>
+							<div id="confProgramarIDLoja">
+								<input class = "texto" type="text" name="confProgramarIDLoja_ECF_DarumaValor"/> Valor <br/>
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('confProgramarOperador');" value="confProgramarOperador_ECF_Daruma"/>
+							confProgramarOperador_ECF_Daruma <br/>
+							<div id="confProgramarOperador">
+								<input class = "texto" type="text" name="confProgramarOperador_ECF_DarumaValor"/> Valor <br/>
+							</div>
+						</li>
+						
+						
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/><center>
+					</div>
+				<!-- Fim Metodos Relatorios Fiscais -->
+
+		    
+
+		    
+
+
+		    
+
+		    
+
+		    
+
+		    <li id ="relatorio">
+			<input type="radio" name="metodo" value="rGerarRelatorio_ECF_Daruma"/>
+			rGerarRelatorio_ECF_Daruma<br />
+			<input class = "texto" type="text" name="rGerarRelatorio_ECF_DarumaRelatorio"/> Relat&oacute;rio <br/>
+			<input class = "texto" type="text" name="rGerarRelatorio_ECF_DarumaTipo"/> Tipo <br/>
+			<input class = "texto" type="text" name="rGerarRelatorio_ECF_DarumaIncial"/> Inicial <br/>
+			<input class = "texto" type="text" name="rGerarRelatorio_ECF_DarumaFinal"/> Final <br/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rEfetuarDownloadMFD_ECF_Daruma"/>
+			rEfetuarDownloadMFD_ECF_Daruma<br />
+			<input class = "texto" type="text" name="rEfetuarDownloadMFD_ECF_DarumaTipo"/> Tipo <br/>
+			<input class = "texto" type="text" name="rEfetuarDownloadMFD_ECF_DarumaIncial"/> Inicial <br/>
+			<input class = "texto" type="text" name="rEfetuarDownloadMFD_ECF_DarumaFinal"/> Final <br/>
+			<input class = "texto" type="text" name="rEfetuarDownloadMFD_ECF_DarumaArquivo"/> Arquivo <br/>
+		    </li>
+
+		    <li >
+			<input type="radio" name="metodo" value="rLerAliquotas_ECF_Daruma"/>
+			rLerAliquotas_ECF_Daruma<br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rLerMeiosPagto_ECF_Daruma"/>
+			    rLerMeiosPagto_ECF_Daruma<br />
+		    </li>
+		    <li>
+			<input type="radio" name="metodo" value="rLerRG_ECF_Daruma"/>
+			    rLerRG_ECF_Daruma<br />
+		    </li>
+		    <li>
+			<input type="radio" name="metodo" value="rLerDecimais_ECF_Daruma"/>
+			    rLerDecimais_ECF_Daruma<br />
+		    </li>
+		    <li>
+			<input type="radio" name="metodo" value="rLerDecimaisInt_ECF_Daruma"/>
+			    rLerDecimaisInt_ECF_Daruma<br />
+		    </li>
+		    <li>
+			<input type="radio" name="metodo" value="rLerDecimaisStr_ECF_Daruma"/>
+			    rLerDecimaisStr_ECF_Daruma<br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rDataHoraImpressora_ECF_Daruma"/>
+			    rDataHoraImpressora_ECF_Daruma<br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rVerificarImpressoraLigada_ECF_Daruma"/>
+			    rVerificarImpressoraLigada_ECF_Daruma<br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rStatusImpressora_ECF_Daruma"/>
+			rStatusImpressora_ECF_Daruma<br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rStatusImpressoraStr_ECF_Daruma"/>
+			rStatusImpressoraStr_ECF_Daruma<br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rStatusImpressoraInt_ECF_Daruma"/>
+			rStatusImpressoraInt_ECF_Daruma<br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rInfoExtentida_ECF_Daruma"/>
+			rInfoExtentida_ECF_Daruma<br />
+			<input class = "texto" type="text" name="rInfoExtentida_ECF_DarumaNumero"/> N&uacute;mero Informa&ccedil;&atilde;o <br/>
+
+		    </li>
+		    
+		    <li>
+			<input type="radio" name="metodo" value="rInfoExtentida1_ECF_Daruma"/>
+			rInfoExtentida1_ECF_Daruma<br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rInfoExtentida2_ECF_Daruma"/>
+			rInfoExtentida2_ECF_Daruma<br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rInfoExtentida3_ECF_Daruma"/>
+			rInfoExtentida3_ECF_Daruma<br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rInfoExtentida4_ECF_Daruma"/>
+			rInfoExtentida4_ECF_Daruma<br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rInfoExtentida5_ECF_Daruma"/>
+			rInfoExtentida5_ECF_Daruma<br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rVerificarReducaoZ_ECF_Daruma"/>
+			rVerificarReducaoZ_ECF_Daruma<br />
+		    </li>
+		    
+		    <li>
+			<input type="radio" name="metodo" value="rStatusUltimoCmd_ECF_Daruma"/>
+			rStatusUltimoCmd_ECF_Daruma<br />
+		    </li>
+		    
+		    <li>
+			<input type="radio" name="metodo" value="rStatusUltimoCmdInt_ECF_Daruma"/>
+			rStatusUltimoCmdInt_ECF_Daruma<br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rStatusUltimoCmdStr_ECF_Daruma"/>
+			rStatusUltimoCmdStr_ECF_Daruma<br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rRetornarInformacao_ECF_Daruma"/>
+			rRetornarInformacao_ECF_Daruma<br />
+			<input class = "texto" type="text" name="rRetornarInformacao_ECF_DarumaIndice"/> Ind&iacute;ce <br/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rRetornarNumeroSerie_ECF_Daruma"/>
+			rRetornarNumeroSerie_ECF_Daruma<br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rCarregarNumeroSerie_ECF_Daruma"/>
+			rCarregarNumeroSerie_ECF_Daruma<br />
+		    </li>
+		    
+		    <li>
+			<input type="radio" name="metodo" value="rRetornarDadosReducaoZ_ECF_Daruma"/>
+			rRetornarDadosReducaoZ_ECF_Daruma<br />
+		    </li>
+		    
+		    <li>
+			<input type="radio" name="metodo" value="rRegistrarNumeroSerie_ECF_Daruma"/>
+			 rRegistrarNumeroSerie_ECF_Daruma<br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="iEjetarCheque_ECF_Daruma"/>
+			iEjetarCheque_ECF_Daruma<br />
+		    </li>
+
+		    
+
+		    <li>
+			<input type="radio" name="metodo" value="iAcionarGuilhotina_ECF_Daruma"/>
+			 iAcionarGuilhotina_ECF_Daruma<br />
+			 <input class = "texto" type="text" name="iAcionarGuilhotina_ECF_DarumaTipoCorte"/> Tipo Corte <br/>
+		    </li>
+
+		    <!-- Parei aqui!
+		    -->
+
+		    
+
+                </ul>
+
+                <input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/>
+
+
+		<a href="../">
+		    <button>Voltar</button>
+		</a>
+
+		<div class="atalhos">
+		    <a href="#cupom" title="Pula para as fun&ccedil;&otilde;es de Cupom Fiscal">
+			&uarr; Cupom Fiscal
+		    </a>
+
+		    <a href="#gerencial" title="Pula para as fun&ccedil;&otilde;es de Relat&oacute;rio Gerencial">
+			&uarr; Relat&oacute;rio Gerencial
+		    </a>
+
+		    <a href="#geral" title="Pula para as Fun&ccedil;&otilde;es Gerais">
+			&uarr; Fun&ccedil;&otilde;es Gerais
+		    </a>
+
+		    <a href="#nfiscal" title="Pula para as fun&ccedil;&otilde;es de Comprovante n&atilde;o Fiscal">
+			&uarr; Comprovante n&atilde;o Fiscal
+		    </a>
+
+		    <br/>
+
+		    <a href="#credito" title="Pula para as fun&ccedil;&otilde;es de Comprovante Cr&eacute;dito e D&eacute;bito">
+			&uarr; Comprovante Cr&eacute;dito e D&eacute;bito
+		    </a>
+
+		    <a href="#relatorio" title="Pula para as fun&ccedil;&otilde;es de Relat&oacute;rios">
+			&uarr; Relat&oacute;rios
+		    </a>
+
+		    <a href="#registro"title="Pula para as fun&ccedil;&otilde;es de Registro">
+			&uarr; Registro
+		    </a>
+
+		</div>
+
+            </form>
+
+        </div>
+
+    </body>
+</html>

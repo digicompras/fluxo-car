@@ -1,0 +1,447 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+        <title>M&eacute;todos DUAL</title>
+        <link rel="stylesheet" href="../css/padrao.css" type="text/css"/>
+        <script type="text/javascript" src="../js/geral.js"></script>
+		
+		<script type="text/javascript">
+
+		window.onload = function () {
+                document.getElementById('mnuMetodosdfw').style.display = 'none';
+                document.getElementById('mnuMetodosRegistro').style.display = 'none';
+                document.getElementById('mnuMetodosStatus').style.display = 'none';
+				document.getElementById('mnuMetodosAutenticacao').style.display = 'none';
+				document.getElementById('mnuExemplos').style.display = 'none';
+				document.getElementById('mnuBobina35').style.display = 'none';
+				document.getElementById('eDefinir').style.display = 'none';
+				document.getElementById('regValor').style.display = 'none';
+				
+				document.getElementById('regAguardar').style.display = 'none';
+				document.getElementById('regEnter').style.display = 'none';
+				document.getElementById('regLinhas').style.display = 'none';
+				document.getElementById('regModo').style.display = 'none';
+				document.getElementById('regPorta').style.display = 'none';
+				document.getElementById('regTabulacao').style.display = 'none';
+				document.getElementById('regTermica').style.display = 'none';
+				document.getElementById('regVelocidade').style.display = 'none';
+				document.getElementById('regCode').style.display = 'none';
+				document.getElementById('regZero').style.display = 'none';
+				
+				document.getElementById('iImprimirT').style.display = 'none';
+				document.getElementById('iImprimirA').style.display = 'none';
+				document.getElementById('iAutenticar').style.display = 'none';
+				document.getElementById('iEnviar').style.display = 'none';
+				
+				document.getElementById('mnuExemplo4').style.display = 'none';
+								
+								
+				
+            }  
+			
+        function Habilitar(objDiv) {
+                  
+            if (document.getElementById(objDiv).style.display == 'none') {
+                document.getElementById(objDiv).style.display = 'block';            
+			} else { 				
+				document.getElementById(objDiv).style.display = 'none';
+            }
+        }
+		
+				       
+
+    </script>
+    </head>
+    <body>
+			
+        <div id="pagina">
+
+            <h3>
+                M&eacute;todos DUAL <br/>
+                <small>
+                    Selecione um m&eacute;todo, passe os par&acirc;metros (se necess&aacute;rio) <br/>
+                    em seguida clique em um dos bot&otilde;es "Executar m&eacute;todo selecionado".
+                </small>
+            </h3>
+
+            <form action = "metodos.DUAL.php" method="post">
+
+                <!-- <input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/> -->
+
+		<div class="atalhos">
+			<a href="#metodos dfw" title="Pula para as fun&ccedil;&otilde;es de DarumaFramework">
+			 &darr; M&eacute;todos para DarumaFramework
+			</a>
+			
+			
+		    <a href="#registro" title="Pula para as fun&ccedil;&otilde;es de Registro">
+			 &darr; Registro
+		    </a>
+
+			
+		    <a href="#status" title="Pula para as fun&ccedil;&otilde;es de Status e Testes">
+			 &darr; M&eacute;todos para Status e Testes
+		    </a>
+
+			
+		    <a href="#autenticacao" title="Pula para as Fun&ccedil;&otilde;es de AutenticaÁ„o e Impress„o">
+			 &darr; M&eacute;todos para Autentica&ccedil;&atilde;o e Impress&atilde;o
+		    </a></br>
+
+			<a href="#exemplos" title="Pula para as Fun&ccedil;&otilde;es Exemplos">
+			 &darr; Exemplos
+		    </a>
+			
+			<a href="#bobina35" title="Pula para as Fun&ccedil;&otilde;es Bobina 35 colunas">
+			 &darr; Bobina 35 colunas
+		    </a>
+			
+		</div>
+
+            <ul class="metodos">
+				<!-- Inicio Menu Metodos para DarumaFramework -->
+				<hr size="2"  id="metodos dfw"/>
+				<h3 align="center"><a href="#metodosdfw" onclick="Habilitar('mnuMetodosdfw');"> M&eacute;todos para DarumaFramework</a></h3> 
+					<div id="mnuMetodosdfw" >
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('eDefinir');" value="eDefinirProduto_DarumaFramework"/>
+							eDefinirProduto_DarumaFramework	<a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Funcoes_Especiais/M√©todo_eDefinirProduto_Daruma.htm" target="_blank"> ?</a></br>					
+							<div id="eDefinir">
+								<input class="texto" type="text" name="eDefinirProduto_DarumaFrameworkProduto"/> Produto
+							</div>
+						</li>
+				
+				
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('regValor');" value="regRetornaValorChave_DarumaFramework"/>
+							regRetornaValorChave_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Funcoes_Especiais/M√©todo_regRetornaValorChave_DarumaFramework.htm" target="_blank"> ?</a></br>					
+							<div id="regValor">
+								<input class="texto" id="tProduto" type="text" name="regRetornaValorChave_DarumaFrameworkProduto"/> Produto</br>
+								<input class="texto" type="text" name="regRetornaValorChave_DarumaFrameworkChave"/> Chave</br>
+								<input class="texto" type="text" name="regRetornaValorChave_DarumaFrameworkValor"/> Valor</br>
+							</div>
+						</li>
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/><center>
+					</div>
+				<!-- Termino Menu Metodos para DarumaFramework -->	
+					
+					
+				<!-- Inicio Menu Registro -->	
+				<hr size="2"  id="registro" />
+				<h3 align="center"><a href="#metodosregistro" onclick="Habilitar('mnuMetodosRegistro');"> M&eacute;todos para Registro</a></h3> 
+					<div id="mnuMetodosRegistro">	
+						<li >
+							<input type="radio" name="metodo" onclick="Habilitar('regAguardar');" value="regAguardarProcesso_DUAL_DarumaFramework"/>
+							regAguardarProcesso_DUAL_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Registro/regAguardarProcesso_DUAL_DarumaFramework.htm" target="_blank"> ?</a></br><br/>
+							<div id="regAguardar">
+								<input class="texto" type="text" name="regAguardarProcesso_DUAL_DarumaFrameworkParam"/> Valor (0 desabilita/1 habilita)
+							</div>
+						</li>
+
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('regEnter');" value="regEnterFinal_DUAL_DarumaFramework"/>
+							regEnterFinal_DUAL_DarumaFramework 	<a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Registro/regEnterFinal_DUAL_DarumaFramework.htm" target="_blank"> ?</a></br><br/>
+							<div id="regEnter">
+								<input class="texto" type="text" name="regEnterFinal_DUAL_DarumaFrameworkParam"/> Valor (0 desabilita/1 habilita)
+							</div>
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('regLinhas');" value="regLinhasGuilhotina_DUAL_DarumaFramework"/>
+							regLinhasGuilhotina_DUAL_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Registro/regLinhasGuilhotina_DUAL_Daruma_Framework.htm" target="_blank"> ?</a></br><br/>
+							<div id="regLinhas">
+								<input class="texto" type="text" name="regLinhasGuilhotina_DUAL_DarumaFrameworkParam"/> Linhas
+							</div>
+						</li>
+
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('regModo');" value="regModoGaveta_DUAL_DarumaFramework"/>
+							regModoGaveta_DUAL_DarumaFramework	<a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Registro/regModoGaveta_DUAL_Daruma_Framework.htm" target="_blank"> ?</a></br> <br/>
+							<div id="regModo">
+								<input class="texto" type="text" name="regModoGaveta_DUAL_DarumaFrameworkParam"/> Valor (0 desabilita/1 habilita)
+							</div>
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('regPorta');" value="regPortaComunicacao_DUAL_DarumaFramework"/>
+							regPortaComunicacao_DUAL_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Registro/regPortaComunicacao_DUAL_Daruma_Framework.htm" target="_blank"> ?</a></br> <br/>
+							<div id="regPorta">	
+								<input class="texto" type="text" name="regPortaComunicacao_DUAL_DarumaFrameworkParam"/> Porta Serial
+							</div>
+						</li>
+
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('regTabulacao');" value="regTabulacao_DUAL_DarumaFramework"/>
+							regTabulacao_DUAL_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Registro/regTabulacao_DUAL_Daruma_Framework.htm" target="_blank"> ?</a></br> <br/>
+							<div id="regTabulacao">
+								<input class="texto" type="text" name="regTabulacao_DUAL_DarumaFrameworkParam"/> Tabula&ccedil;&atilde;o (05,10,15,20,25,35)
+							</div>
+						</li>
+
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('regTermica');" value="regTermica_DUAL_DarumaFramework"/>
+							regTermica_DUAL_DarumaFramework	<a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Registro/regTermica_DUAL_Daruma_Framework.htm" target="_blank"> ?</a></br> <br/>
+							<div id="regTermica">	
+								<input class="texto" type="text" name="regTermica_DUAL_DarumaFrameworkParam"/> Valor (0 matriciais/1 t&eacute;rmicas)
+							</div>
+						</li>
+
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('regVelocidade');" value="regVelocidade_DUAL_DarumaFramework"/>
+							regVelocidade_DUAL_DarumaFramework	<a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Registro/regVelocidade_DUAL_Daruma_Framework.htm" target="_blank"> ?</a></br> <br/>
+							<div id="regVelocidade">
+								<input class="texto" type="text" name="regVelocidade_DUAL_DarumaFrameworkParam"/> Velocidade
+							</div>
+						</li>
+					
+					
+						<li>
+							<input type="radio"  name="metodo" onclick="Habilitar('regCode');" value="regCodePageAutomatico_DUAL_DarumaFramework"/>
+							regCodePageAutomatico_DUAL_DarumaFramework	<a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Registro/regCodePageAutomatico_DUAL_DarumaFramework.htm" target="_blank"> ?</a></br> <br/>
+							<div id="regCode">
+								<input class="texto" type="text" name="regCodePageAutomatico_DUAL_DarumaFrameworkParam"/> Valor (0 desabilita/1 habilita)
+							</div>
+						</li>
+  
+  
+						<li>
+							<input type="radio"  name="metodo" onclick="Habilitar('regZero');" value="regZeroCortado_DUAL_DarumaFramework"/>
+							regZeroCortado_DUAL_DarumaFramework	<a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Registro/regZeroCortado_DUAL_DarumaFramework.htm" target="_blank"> ?</a></br> <br/>
+							<div id="regZero">
+								<input class="texto" type="text" name="regZeroCortado_DUAL_DarumaFrameworkParam"/> Valor (0 desabilita/1 habilita)</br>
+							</div>
+						</li>
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/></center>
+					</div>
+				<!-- Termino MÈtodos Registro -->
+					
+					
+				<!-- Inicio MÈtodos Status e Testes -->
+				<hr size="2"  id="status"/>
+				<h3 align="center"><a href="#metodosstatus" onclick="Habilitar('mnuMetodosStatus');"> M&eacute;todos para Status e Testes</a></h3>
+					<div id="mnuMetodosStatus">
+						<li>
+							<input type="radio" name="metodo" value="rStatusImpressora_DUAL_DarumaFramework"/>
+							rStatusImpressora_DUAL_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Status/rStatusImpressora_DUAL_Daruma_Framework.htm" target="_blank"> ?</a>
+						</li>
+				
+				
+						<li >
+							<input type="radio" name="metodo" value="rStatusDocumento_DUAL_DarumaFramework"/>
+							rStatusDocumento_DUAL_DarumaFramework<a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Status/rStatusDocumento_DUAL_Daruma_Framework.htm" target="_blank"> ?</a>
+						</li>
+
+					
+						<li>
+							<input type="radio" name="metodo" value="rStatusGaveta_DUAL_DarumaFramework"/>
+							rStatusGaveta_DUAL_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Status/rStatusGaveta_DUAL_Daruma_Framework.htm" target="_blank"> ?</a>
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" value="TESTELOOPINGSTATUS"/>
+							Teste para Looping de verifica&ccedil;&atilde;o de Status						
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" value="TESTELOOPINGSTATUSDOCUMENTO"/>
+							Teste para Looping de verifica&ccedil;&atilde;o de Status de Documento</br>
+						</li>
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/></center>
+					</div>
+				<!-- Termino MÈtodos Status e Testes -->
+					
+					
+				<!-- Inicio MÈtodos AutenticaÁ„o e Impress„o -->
+				<hr size="2"   id="autenticacao"/>
+				<h3 align="center"><a href="#metodosautenticacao" onclick="Habilitar('mnuMetodosAutenticacao');"> M&eacute;todos para Autentica√ß√£o e Impress√£o</a></h3>
+					<div id="mnuMetodosAutenticacao">
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iImprimirT');" value="iImprimirTexto_DUAL_DarumaFramework"/>
+							iImprimirTexto_DUAL_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Autenticacao_e_Impressao/iImprimirTexto_DUAL_Daruma_Framework.htm" target="_blank"> ?</a> <br/>
+							<div id="iImprimirT">
+								<textarea class="texto" name="iImprimirTexto_DUAL_DarumaFrameworkTexto" cols="8" rows="2"></textarea>
+							</div>
+						</li>
+					
+				
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iImprimirA');" value="iImprimirArquivo_DUAL_DarumaFramework"/>
+							iImprimirArquivo_DUAL_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Autenticacao_e_Impressao/iImprimirArquivo_DUAL_Daruma_Framework.htm" target="_blank"> ?</a><br/>
+							<div id="iImprimirA">
+								<input class="texto" type="text" name="iImprimirArquivo_DUAL_DarumaFrameworkArquivo"/>
+							</div>
+						</li>
+				
+				
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iAutenticar');" value="iAutenticarDocumento_DUAL_DarumaFramework"/>
+							iAutenticarDocumento_DUAL_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Autenticacao_e_Impressao/iAutenticaDocumento_DUAL_Daruma_Framework.htm" target="_blank"> ?</a><br/>
+							<div id="iAutenticar">
+								<input class="texto" type="text" name="iAutenticarDocumento_DUAL_DarumaFrameworkDocumento"/> Documento <br/>
+								<input class="texto" type="text" name="iAutenticarDocumento_DUAL_DarumaFrameworkLocal"/> Local <br/>
+								<input class="texto" type="text" name="iAutenticarDocumento_DUAL_DarumaFrameworkTimeout"/> Timeout
+							</div>
+						</li>
+
+					
+						<li>
+							<input type="radio" name="metodo" value="iAcionarGaveta_DUAL_DarumaFramework"/>
+							iAcionarGaveta_DUAL_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Autenticacao_e_Impressao/iAcionarGaveta_DUAL_Daruma_Framework.htm" target="_blank"> ?</a>
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('iEnviar');" value="iEnviarBMP_DUAL_DarumaFramework"/>
+							iEnviarBMP_DUAL_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Mini_Impressora/Metodos_para_Autenticacao_e_Impressao/iEnviarBMP_DUAL_Daruma_Framework.htm" target="_blank"> ?</a> <br/>
+							<div id="iEnviar">
+								<input class="texto" type="text" name="iEnviarBMP_DUAL_DarumaFrameworkArquivoOrigem"/></br>
+							</div>
+						</li>
+
+						</br>				
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/></center>
+					</div>
+				<!-- Termino MÈtodos AutenticaÁ„o e Impress„o -->
+					
+					
+				<!-- Inicio Exemplos -->
+				<hr size="2"   id="exemplos" />
+				<h3 align="center"><a href="#metodosexemplos" onclick="Habilitar('mnuExemplos');"> Exemplos</a></h3>
+					<div id="mnuExemplos">
+						<li>
+							<input type="radio" name="metodo" value="Exemplo1"/>
+							Exemplo 1 (Buffer)
+						</li>
+						
+					
+						<li>
+							<input type="radio" name="metodo" value="Exemplo2"/>
+							Exemplo 2 (Tabula√ß√£o)
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" value="Exemplo3"/>
+							Exemplo 3 (Linha a Linha)
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('mnuExemplo4');" value="Exemplo4"/>
+							Exemplo 4 (Formul√°rio)</br>
+							<div id="mnuExemplo4">
+								<input class="texto" type="text" name="mnuExemplo4NomeEmpresa"/> Nome da Empresa<br/>
+								<input class="texto" type="text" name="mnuExemplo4Endereco"/> Endere√ßo<br/>
+								<input class="texto" type="text" name="mnuExemplo4TelefoneEm"/> Telefone</br>
+								<input class="texto" type="text" name="mnuExemplo4Pedido"/> N√∫mero Pedido<br/>
+								<input class="texto" type="text" name="mnuExemplo4Data"/> Data<br/>
+								<input class="texto" type="text" name="mnuExemplo4Tema"/> Tema da Mensagem</br>
+								<input class="texto" type="text" name="mnuExemplo4Titulo"/> Titulo da Mensagem</br>
+								<input class="texto" type="text" name="mnuExemplo4Valor"/> Valor da Mensagem</br>
+								<input class="texto" type="text" name="mnuExemplo4Cobranca"/> Forma de Cobran√ßa</br>
+								<input class="texto" type="text" name="mnuExemplo4Cliente"/> Cliente</br>
+								<input class="texto" type="text" name="mnuExemplo4FoneRes"/> Telefone Residencial</br>
+								<input class="texto" type="text" name="mnuExemplo4Celular"/> Celular</br>
+								<input class="texto" type="text" name="mnuExemplo4FoneCom"/> Telefone Comercial</br>
+								<input class="texto" type="text" name="mnuExemplo4Mensagem"/> Mensagem</br>
+								<input class="texto" type="text" name="mnuExemplo4Hora"/> Hora</br>
+							</div>
+							
+						</li>
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/></center>	
+					</div>
+				<!-- Termino Exemplos -->	
+
+					
+				<!-- Inicio Exemplos Bobina 35 Colunas -->
+				<hr size="2"   id="bobina35" />
+				<h3 align="center"><a href="#metodosbobina35" onclick="Habilitar('mnuBobina35');"> Bobina 35 Colunas</a></h3>
+					<div id="mnuBobina35">
+						<li>
+							<input type="radio" name="metodo" value="BOB35BUFFER"/>
+							Exemplo 1 (Buffer)
+						</li>
+						
+					
+						<li>
+							<input type="radio" name="metodo" value="BOB35TABULACAO"/>
+							Exemplo 2 (Tabula√ß√£o)
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" value="BOB35LINHA"/>
+							Exemplo 3 (Linha a Linha)
+						</li>
+											
+					
+						<li>
+							<input type="radio" name="metodo" value="BOB35TESTECOMPLETO"/>
+							Teste Completo em Buffer
+						</li>
+					
+					
+						<li>
+							<input type="radio" name="metodo" value="BOB35TESTELINHA"/>
+							Teste Completo Linha-a-Linha</br>
+						</li>
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/></center>
+					</div>
+				<hr size="2">
+				<!--Termino Exemplos Bobina 35 Colunas -->
+            </ul>
+
+					
+
+		<div class="atalhos">
+		    <a href="#metodos dfw" title="Pula para as fun&ccedil;&otilde;es de DarumaFramework">
+			&uarr; M&eacute;todos para DarumaFramework
+			</a>
+			
+			
+		    <a href="#registro" title="Pula para as fun&ccedil;&otilde;es de Registro">
+			&uarr; Registro
+		    </a>
+
+			
+		    <a href="#status" title="Pula para as fun&ccedil;&otilde;es de Status e Testes">
+			&uarr; M&eacute;todos para Status e Testes
+		    </a>
+
+			
+		    <a href="#autenticacao" title="Pula para as Fun&ccedil;&otilde;es de AutenticaÁ„o e Impress„o">
+			&uarr; M&eacute;todos para Autentica&ccedil;&atilde;o e Impress&atilde;o
+		    </a></br>
+
+			<a href="#exemplos" title="Pula para as Fun&ccedil;&otilde;es Exemplos">
+			&uarr; Exemplos
+		    </a>
+			
+			<a href="#bobina35" title="Pula para as Fun&ccedil;&otilde;es Bobina 35 colunas">
+			&uarr; Bobina 35 colunas
+		    </a>
+
+		</div>
+
+            </form>
+
+
+        </div>
+	
+	
+    </body>
+</html>

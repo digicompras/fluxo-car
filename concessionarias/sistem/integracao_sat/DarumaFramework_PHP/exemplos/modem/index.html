@@ -1,0 +1,416 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>M&eacute;todos MODEM</title>
+        <link rel="stylesheet" href="../css/padrao.css" type="text/css"/>
+        <script type="text/javascript" src="../js/geral.js"></script>
+		<script type="text/javascript">
+
+		window.onload = function () {
+                document.getElementById('mnuMetodosdfw').style.display = 'none';
+                document.getElementById('mnuMetodosRegistro').style.display = 'none';
+				document.getElementById('mnuMetodosFuncoes').style.display = 'none';
+				document.getElementById('mnuMetodosTransmissao').style.display = 'none';
+				document.getElementById('mnuMetodosRecepcao').style.display = 'none';
+				document.getElementById('mnuConexao').style.display = 'none';
+                
+				document.getElementById('eDefinir').style.display = 'none';
+				document.getElementById('regValor').style.display = 'none';
+				
+				document.getElementById('regTempo').style.display = 'none';
+				document.getElementById('regLerApagar').style.display = 'none';
+				document.getElementById('regPorta').style.display = 'none';
+				document.getElementById('regThread').style.display = 'none';
+				document.getElementById('regVelocidade').style.display = 'none';
+				document.getElementById('regCaption').style.display = 'none';
+				document.getElementById('regBandeja').style.display = 'none';
+				
+				document.getElementById('eApagar').style.display = 'none';
+				
+				document.getElementById('tEnviar').style.display = 'none';
+				document.getElementById('tEnviarOperadora').style.display = 'none';
+							
+				document.getElementById('rReceberSmsIndice').style.display = 'none';
+				
+				document.getElementById('eRealizar').style.display = 'none';
+				document.getElementById('tEnviarDados').style.display = 'none';								
+								
+				
+            }  
+			
+        function Habilitar(objDiv) {
+                  
+            if (document.getElementById(objDiv).style.display == 'none') {
+                document.getElementById(objDiv).style.display = 'block';            
+			} else { 				
+				document.getElementById(objDiv).style.display = 'none';
+            }
+        }
+		
+				       
+
+    </script>
+		
+    </head>
+    <body>
+
+        <div id="pagina">
+
+            <h3>
+                M&eacute;todos MODEM <br/>
+                <small>
+                    Selecione um m&eacute;todo, passe os par&acirc;metros (se necess&aacute;rio) <br/>
+                    em seguida clique em um dos bot&otilde;es "Executar m&eacute;todo selecionado".
+                </small>
+            </h3>
+
+            <form action = "metodos.MODEM.php" method="post">
+
+			
+			<div class="atalhos">
+				<a href="#metodos dfw" title="Pula para as fun&ccedil;&otilde;es de DarumaFramework">
+				&darr; M&eacute;todos para DarumaFramework
+				</a>
+			
+			
+				<a href="#registro" title="Pula para as fun&ccedil;&otilde;es de Registro">
+				&darr; Registro
+				</a>
+
+			
+				<a href="#funcoes" title="Pula para as fun&ccedil;&otilde;es para Modem">
+				&darr; M&eacute;todos de Fun&ccedil;&otilde;es para Modem
+				</a>
+
+			
+				<a href="#transmissao" title="Pula para as Fun&ccedil;&otilde;es de transmissao para modem">
+				&darr; M&eacute;todos de Transmiss&atilde;o para Modem
+				</a></br>
+
+				
+				<a href="#recepcao" title="Pula para as Fun&ccedil;&otilde;es recepcao para modem">
+				&darr; M&eacute;todos de Recep&ccedil;&atilde;o para Modem
+				</a>
+			
+			
+				<a href="#conexao" title="Pula para as Fun&ccedil;&otilde;es Bobina 35 colunas">
+				&darr; Conex&atilde;o CSD
+				</a>
+			
+			</div>
+			
+			<ul class="metodos">
+			<!-- Inicio Metodos para DarumaFramework -->
+				<hr size="2"  id="metodos dfw"/>
+				<h3 align="center"><a href="#metodosdfw" onclick="Habilitar('mnuMetodosdfw');"> M&eacute;todos para DarumaFramework</a></h3> 
+					<div id="mnuMetodosdfw" >
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('eDefinir');" value="eDefinirProduto_DarumaFramework"/>
+							eDefinirProduto_DarumaFramework	<a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Registry/eDefinirProduto_Daruma.htm" target="_blank"> ?</a></br>					
+							<div id="eDefinir">
+								<input class="texto" type="text" name="eDefinirProduto_DarumaFrameworkProduto"/> Produto
+							</div>
+						</li>
+				
+				
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('regValor');" value="regRetornaValorChave_DarumaFramework"/>
+							regRetornaValorChave_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/Impressora_Fiscal/Registry/regRetornaValorChave_DarumaFramework.htm" target="_blank"> ?</a></br>					
+							<div id="regValor">
+								<input class="texto" id="tProduto" type="text" name="regRetornaValorChave_DarumaFrameworkProduto"/> Produto</br>
+								<input class="texto" type="text" name="regRetornaValorChave_DarumaFrameworkChave"/> Chave</br>
+							</div>
+						</li>
+						
+						
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/><center>
+					</div>
+			<!-- Fim Metodos para DarumaFramework -->		
+			
+
+			<!-- Inicio Metodos para Registro -->
+				<hr size="2"  id="registro"/>
+				<h3 align="center"><a href="#metodosregistro" onclick="Habilitar('mnuMetodosRegistro');"> M&eacute;todos para Registro</a></h3> 
+					<div id="mnuMetodosRegistro" >			
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('regTempo');" value="regTempoAlertar_MODEM_DarumaFramework"/>
+							regTempoAlertar_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Registro/regTempoAlertar_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+							<div id="regTempo">
+								<input class = "texto" type="text" name="regTempoAlertar_MODEM_DarumaFrameworkParam"/> Tempo (milisegundos)
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('regLerApagar');" value="regLerApagar_MODEM_DarumaFramework"/>
+							regLerApagar_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Registro/regLerApagar_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+							<div id="regLerApagar">
+								<input class = "texto" type="text" name="regLerApagar_MODEM_DarumaFrameworkParam"/> Valor (0 desabilita/1 habilita)
+							</div>
+						</li>
+			
+			
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('regPorta');" value="regPorta_MODEM_DarumaFramework"/>
+							regPorta_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Registro/regPorta_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+							<div id="regPorta">
+								<input class = "texto" type="text" name="regPorta_MODEM_DarumaFrameworkParam"/> Porta
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('regThread');" value="regThread_MODEM_DarumaFramework"/>
+							regThread_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Registro/regThread_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+							<div id="regThread">
+								<input class = "texto" type="text" name="regThread_MODEM_DarumaFrameworkParam"/> Thread (TRUE/FALSE)
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('regVelocidade');" value="regVelocidade_MODEM_DarumaFramework"/>
+							regVelocidade_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Registro/regVelocidade_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+							<div id="regVelocidade">
+								<input class = "texto" type="text" name="regVelocidade_MODEM_DarumaFrameworkParam"/> Velocidade
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('regCaption');" value="regCaptionWinAPP_MODEM_DarumaFramework"/>
+							regCaptionWinAPP_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Registro/regCaptionWinAPP_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+							<div id="regCaption">
+								<input class = "texto" type="text" name="regCaptionWinAPP_MODEM_DarumaFrameworkParam"/> Caption
+							</div>
+						</li>
+						
+						
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('regBandeja');" value="regBandejaInicio_MODEM_DarumaFramework"/>
+							regBandejaInicio_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Registro/regBandejaInicio_MODEM_Darumaframework.htm" target="_blank"> ?</a></br>
+							<div id="regBandeja">
+								<input class = "texto" type="text" name="regBandejaInicio_MODEM_DarumaFrameworkParam"/> Bandeja (SIM1/SIM2)
+							</div>
+						</li>
+						
+						
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/><center>
+					</div>
+			<!-- Fim Metodos para Registro -->
+			
+			
+			<!-- Inicio Metodos de Funcoes para Modem -->
+				<hr size="2"  id="registro"/>
+				<h3 align="center"><a href="#funcoes" onclick="Habilitar('mnuMetodosFuncoes');"> M&eacute;todos de Fun&ccedil;&otilde;es para Modem</a></h3> 
+					<div id="mnuMetodosFuncoes">
+						<li>
+							<input type="radio" name="metodo" onclick="Habilitar('eApagar');" value="eApagarSms_MODEM_DarumaFramework"/>
+							eApagarSms_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Funcionalidades_Modem/eApagarSMS_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+							<div id="eApagar">
+								<input class = "texto" type="text" name="eApagarSms_MODEM_DarumaFrameworkIndice"/> &Iacute;ndice
+							</div>
+						</li>
+			
+			
+						<li>
+							<input type="radio" name="metodo" value="eInicializar_MODEM_DarumaFramework"/>
+							eInicializar_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Funcionalidades_Modem/DarumaFramework_API_fnInicializar_MIN100_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+			
+			
+						<li>
+							<input type="radio" name="metodo" value="eTrocarBandeja_MODEM_DarumaFramework"/>
+							eTrocarBandeja_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Funcionalidades_Modem/eTrocarBandeja_MODEM_Darumaframework.htm" target="_blank"> ?</a></br>
+						</li>
+			
+			
+						<li>
+							<input type="radio" name="metodo" value="eBuscarPortaVelocidade_MODEM_DarumaFramework"/>
+							eBuscarPortaVelocidade_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Funcionalidades_Modem/eBuscarPortaVelocidade_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+						</li>
+						
+
+						<li>
+							<input type="radio" name="metodo" value="eReiniciar_MODEM_DarumaFramework"/>
+							eReiniciar_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Funcionalidades_Modem/eReiniciar_MODEM_Daruma.htm" target="_blank"> ?</a></br>
+						</li>
+												
+			
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/><center>
+					</div>
+			<!-- Fim Metodos de Funcoes para Modem -->
+						
+			
+			<!-- Inicio Metodos de Transmissoes para Modem -->
+				<hr size="2"  id="transmissao"/>
+				<h3 align="center"><a href="#funcoes" onclick="Habilitar('mnuMetodosTransmissao');"> M&eacute;todos de Transmiss&otilde;o para Modem</a></h3> 
+					<div id="mnuMetodosTransmissao">
+						<li>
+                        <input type="radio" name="metodo" onclick="Habilitar('tEnviar');" value="tEnviarSms_MODEM_DarumaFramework"/>
+                        tEnviarSms_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Transmissao/tEnviarSMS_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+						<div id="tEnviar">
+							<input class = "texto" type="text" name="tEnviarSms_MODEM_DarumaFrameworkTelefone"/> Telefone <br/>
+							<textarea class="texto" name="tEnviarSms_MODEM_DarumaFrameworkMensagem"></textarea> Mensagem
+						</div>
+						</li>
+			
+						
+						<li>
+                        <input type="radio" name="metodo" onclick="Habilitar('tEnviarOperadora');" value="tEnviarSmsOperadora_MODEM_DarumaFramework"/>
+                        tEnviarSmsOperadora_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Transmissao/tEnviarSMSOperadora_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+						<div id="tEnviarOperadora">
+							<input class = "texto" type="text" name="tEnviarSmsOperadora_MODEM_DarumaFrameworkTelefone"/> Telefone <br/>
+							<input class = "texto" type="text" name="tEnviarSmsOperadora_MODEM_DarumaFrameworkBandeja"/> Bandeja (SIM1/SIM2) <br/>
+							<textarea class="texto" name="tEnviarSmsOperadora_MODEM_DarumaFrameworkMensagem"></textarea> Mensagem
+						</div>
+						</li>
+			
+			
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/><center>
+					</div>
+			<!-- Fim Metodos de Transmissoes para Modem -->
+			
+			
+			<!-- Inicio Metodos de Recepcao para Modem -->
+				<hr size="2"  id="recepcao"/>
+				<h3 align="center"><a href="#funcoes" onclick="Habilitar('mnuMetodosRecepcao');"> M&eacute;todos de Recep&ccedil;&otilde;o para Modem</a></h3> 
+					<div id="mnuMetodosRecepcao">
+						<li>
+                        <input type="radio" name="metodo" value="rReceberSms_MODEM_DarumaFramework"/>
+						rReceberSms_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Recepcao/rReceberSMS_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+						<input type="radio" name="metodo" onclick="Habilitar('rReceberSmsIndice');" value="rReceberSmsIndice_MODEM_DarumaFramework"/>
+						rReceberSmsIndice_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Recepcao/rReceberSMS_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+						<div id="rReceberSmsIndice">		
+							<input class = "texto" type="text" name="rReceberSmsIndice_MODEM_DarumaFrameworkIndice"/> Indice <br/>
+						</div>	
+						</li>
+						
+					
+						<li>
+                        <input type="radio" name="metodo" value="rListarSms_MODEM_DarumaFramework"/>
+						rListarSms_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Recepcao/rListarSMS_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+						</li>
+					
+						
+						<li>
+                        <input type="radio" name="metodo" value="rRetornarImei_MODEM_DarumaFramework"/>
+                        rRetornarImei_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Recepcao/rRetornarIMEI_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+						</li>
+					
+					
+						<li>
+                        <input type="radio" name="metodo" value="rNivelSinalRecebido_MODEM_DarumaFramework"/>
+                        rNivelSinalRecebido_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Recepcao/rNivelSinalRecebido_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+                        <input type="radio" name="metodo" value="rRetornarOperadora_MODEM_DarumaFramework"/>
+                        rRetornarOperadora_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Recepcao/rRetornarOperadora_MODEM_Darumaframework.htm" target="_blank"> ?</a></br>
+						</li>
+					
+					
+						<li>
+                        <input type="radio" name="metodo" value="rInfoEstendida_MODEM_DarumaFramework"/>
+                        rInfoEstendida_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Registro/regVelocidade_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+						</li>
+						
+					
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/><center>
+					</div>
+			<!-- Fim Metodos de Recepcao para Modem -->
+			
+			
+			<!-- Inicio Conexao CSD -->
+				<hr size="2"  id="conexao"/>
+				<h3 align="center"><a href="#funcoes" onclick="Habilitar('mnuConexao');"> M&eacute;todos de Conex&otilde;o CSD</a></h3> 
+					<div id="mnuConexao">
+						<li>
+                        <input type="radio" name="metodo" value="eAtivarConexaoCsd_MODEM_DarumaFramework"/>
+                        eAtivarConexaoCsd_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Funcionalidades_Modem/eAtivarConexaoCsd_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+						</li>
+						
+						
+						<li>
+                        <input type="radio" name="metodo" onclick="Habilitar('eRealizar');" value="eRealizarChamadaCsd_MODEM_DarumaFramework"/>
+                        eRealizarChamadaCsd_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Funcionalidades_Modem/eRealizarChamadaCsd_MODEM_Darumaframework.htm" target="_blank"> ?</a></br>
+						<div id="eRealizar">
+							<input class = "texto" type="text" name="eRealizarChamadaCsd_MODEM_DarumaFrameworkTelefone"/> Telefone
+						</div>
+						</li>
+						
+			
+						<li>
+                        <input type="radio" name="metodo" value="eFinalizarChamadaCsd_MODEM_DarumaFramework"/>
+                        eFinalizarChamadaCsd_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Funcionalidades_Modem/eFinalizarChamadaCsd_MODEM_Darumaframework.htm" target="_blank"> ?</a></br>
+						</li>
+
+					
+						<li id="transmissao">
+                        <input type="radio" name="metodo" onclick="Habilitar('tEnviarDados');" value="tEnviarDadosCsd_MODEM_DarumaFramework"/>
+                        tEnviarDadosCsd_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Transmissao/tEnviarDadosCsd_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+						<div id="tEnviarDados">
+							<textarea class="texto" name="tEnviarDadosCsd_MODEM_DarumaFrameworkDados"></textarea> Dados
+						</div>
+						</li>
+		    
+						
+						<li>
+                        <input type="radio" name="metodo" value="rReceberDadosCsd_MODEM_DarumaFramework"/>
+                        rReceberDadosCsd_MODEM_DarumaFramework <a href="http://desenvolvedoresdaruma.com.br/home/downloads/Site_2011/Help/DarumaFrameworkHelpOnline/DarumaFramework/MODEM/Metodos_para_Recepcao/rReceberDadosCsd_MODEM_DarumaFramework.htm" target="_blank"> ?</a></br>
+						</li>
+		    
+		    
+						</br>
+						<center><input class ="submit" type="submit" value="Executar m&eacute;todo selecionado"/><center>
+					</div>
+				<hr size="2">
+			<!-- Fim Metodos de Recepcao para Modem -->
+				
+				
+			<div class="atalhos">
+				<a href="#metodos dfw" title="Pula para as fun&ccedil;&otilde;es de DarumaFramework">
+				&uarr; M&eacute;todos para DarumaFramework
+				</a>
+			
+			
+				<a href="#registro" title="Pula para as fun&ccedil;&otilde;es de Registro">
+				&uarr; Registro
+				</a>
+
+			
+				<a href="#funcoes" title="Pula para as fun&ccedil;&otilde;es para Modem">
+				&uarr; M&eacute;todos de Fun&ccedil;&otilde;es para Modem
+				</a>
+
+			
+				<a href="#transmissao" title="Pula para as Fun&ccedil;&otilde;es de transmissao para modem">
+				&uarr; M&eacute;todos de Transmiss&atilde;o para Modem
+				</a></br>
+
+				<a href="#recepcao" title="Pula para as Fun&ccedil;&otilde;es recepcao para modem">
+				&uarr; M&eacute;todos de Recep&ccedil;&atilde;o para Modem
+				</a>
+			
+				<a href="#conexao" title="Pula para as Fun&ccedil;&otilde;es Bobina 35 colunas">
+				&uarr; Conex&atilde;o CSD
+				</a>
+			
+			</div>
+				
+
+            </ul>
+            </form>
+        </div>
+	</body>
+</html>

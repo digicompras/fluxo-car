@@ -1,0 +1,15 @@
+section{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: gray;
+    max-width: 700px;
+
+}
+
+.bot_painel_controle{
+    width: 100px;
+    flex-wrap: wrap;
+    height: 200px;
+    border: 2px solid red;
+}
+

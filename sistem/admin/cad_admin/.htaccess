@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "cad_admin"
+AuthUserFile "/home/allcred/.htpasswds/public_html/admin/cad_admin/passwd"
+require valid-user

@@ -1,0 +1,16 @@
+root { 
+    display: block;
+}
+
+input {
+    font-size: 24px;
+}
+
+#pagina {
+    margin-top: 120px;
+    text-align: center;    
+}
+
+.botoes {
+    margin-bottom: 30px;
+}

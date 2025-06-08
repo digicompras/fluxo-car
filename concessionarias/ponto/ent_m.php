@@ -1,0 +1,158 @@
+<?php
+session_start(); //inicia sessão...
+if ($_SESSION["usuario"] == true) //verifica se a variável "usuario" é verdadeira...
+echo ""; //se for emite mensagem positiva.
+if ($_SESSION["senha"] == true) //verifica se a variável "senha" é verdadeira...
+echo ""; //se for emite mensagem positiva.
+else //se não for...
+header("Location: alerta.php");
+
+?>
+
+<?
+
+//require('file:///F|/webs/pedcell/conexao.php') or die("Erro ao incluir arquivo");
+require '../../conect/conect.php';
+
+$num_dia = date('w');
+$sql = "SELECT * FROM dias_semana where num_dia = '$num_dia' limit 1";
+
+$res = mysql_query($sql);
+
+while($linha=mysql_fetch_row($res)) {
+
+$dia_semana = $linha[2];
+
+}
+
+
+
+
+$codigo_ponto = $_POST['codigo_ponto'];
+$nome = $_POST['nome'];
+$data = $_POST['data'];
+$date = $_POST['date'];
+$dia = $_POST['dia'];
+$mes_informado = $_POST['mes'];
+$ano_informado = $_POST['ano'];
+
+
+$ent_m = $_POST['ent_m'];
+
+if($dia>26){
+$mes_calculado = bcadd($mes,1);
+	
+if($mes_calculado>12){
+$mes_encontrado = "01";
+$ano_encontrado = bcadd($ano_informado,1);
+	
+if($mes_encontrado<=9){
+$mes = "0".$mes_calculado;
+$ano = $ano_encontrado;
+}
+else{
+$mes = $mes_calculado;
+$ano = $ano_encontrado;
+}
+	
+}
+else{
+$mes = $mes_calculado;
+$ano = $ano_informado;
+}
+	
+
+	
+}
+else{
+
+$mes = $mes_informado;
+$ano = $ano_informado;
+}
+
+$mes_ano = "$mes-$ano";
+
+$estab_pertence = $_POST['estab_pertence'];
+
+
+
+$sql = "SELECT * FROM ponto where nome = '$nome' and date = '$date'";
+$res = mysql_query($sql);
+while($linha=mysql_fetch_row($res)) {
+$reg++;
+
+$nome = $linha[1];
+$data = $linha[2];
+}
+?>
+  <?
+if($reg==0){
+$comando = "insert into ponto(nome,data,ent_m,mes_ano,sai_m,ent_t,sai_t,dia_semana,date,dia,mes,ano,estab_pertence) values('$nome','$data','$ent_m','$mes_ano','-','-','-','$dia_semana','$date','$dia','$mes','$ano','$estab_pertence')";
+
+mysql_query($comando,$conexao) or die("Erro ao marcar seu ponto!<br><br> Tente novamente!");
+
+
+echo "Ponto marcado com sucesso!<br><br> Hoje é um novo dia, que ele seja cheio de bênçaos para você!<br><br>";
+
+
+}
+else
+{
+echo "Você já marcou sua entrada de manhã!<br><br> Você deve marcar sua saída do período da manhã!";
+}
+
+
+
+?>
+
+
+<html>
+<head>
+<title>Documento sem t&iacute;tulo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+
+}
+.style1 {
+	color: #0000FF;
+	font-weight: bold;
+}
+
+-->
+</style>
+</head>
+
+<?
+$sql = "SELECT * FROM background";
+$res = mysql_query($sql);
+while($linha=mysql_fetch_row($res)) {
+
+$background = $linha[1];
+
+}
+?>
+
+<body background="../../background/<? echo "$background"; ?>">
+</p>
+<form name="form1" method="post" action="../index.php">
+  <?
+$usuario = $_SESSION['usuario'];
+$senha = $_SESSION['senha'];
+?>
+  <input name="codigo_ponto" type="hidden" id="codigo_ponto" value="<? echo $codigo_ponto; ?>">
+  <input class="class01" type="submit" name="Submit" value="Ir para o menu principal">
+</form>
+<p>&nbsp;</p>
+</body>
+</html>
+<?
+mysql_close($conexao);
+?>

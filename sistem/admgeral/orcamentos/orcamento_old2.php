@@ -1,0 +1,1452 @@
+<?php
+session_start(); //inicia sessão...
+if ($_SESSION["usuario"] == true) //verifica se a variável "usuario" é verdadeira...
+echo ""; //se for emite mensagem positiva.
+if ($_SESSION["senha"] == true) //verifica se a variável "senha" é verdadeira...
+echo ""; //se for emite mensagem positiva.
+else //se não for...
+header("Location: alerta.php");
+
+?>
+<html>
+<head>
+<title>Border&ocirc;s</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.style2 {
+	color: #0000FF;
+	font-weight: bold;
+}
+.style3 {font-size: 10px}
+.style6 {font-size: 18px; font-weight: bold; }
+-->
+</style>
+</head>
+<?
+
+require '../../conect/conect.php';
+?>
+
+<?
+$codigo_cliente = $_POST['codigo_cliente'];
+
+
+$sql = "SELECT * FROM clientes where codigo = '$codigo_cliente'";
+$res = mysql_query($sql);
+
+$reg = 0;
+echo "<tr>";
+while($linha=mysql_fetch_row($res)) {
+$reg++;
+
+$codigo = $linha[0];
+
+$nome = $linha[1];
+
+$sexo = $linha[2];
+
+$estadocivil = $linha[3];
+
+$cpf_cliente = $linha[4];
+
+$rg = $linha[5];
+
+$orgao = $linha[6];
+
+$emissao = $linha[7];
+
+$data_nasc = $linha[8];
+
+$pai = $linha[9];
+
+$mae = $linha[10];
+
+$endereco = $linha[11];
+
+$numero = $linha[12];
+
+$bairro = $linha[13];
+
+$complemento = $linha[14];
+
+$cidade = $linha[15];
+
+$estado = $linha[16];
+
+$cep = $linha[17];
+
+$telefone = $linha[18];
+
+$celular = $linha[19];
+
+$email = $linha[20];
+
+$operador = $linha[21];
+
+$cel_operador = $linha[22];
+
+$email_operador = $linha[23];
+
+$estabelecimento = $linha[24];
+
+$cidade_estabelecimento = $linha[25];
+
+$tel_estabelecimento = $linha[26];
+
+$email_estabelecimento = $linha[27];
+
+$obs = $linha[28];
+
+$datacadastro = $linha[29];
+
+$horacadastro = $linha[30];
+
+$dataalteracao = $linha[31];
+
+$horaalteracao = $linha[32];
+
+$operador_alterou = $linha[33];
+
+$cel_operador_alterou = $linha[34];
+
+$email_operador_alterou = $linha[35];
+
+$estabelecimento_alterou = $linha[36];
+
+$cidade_estabelecimento_alterou = $linha[37];
+
+$tel_estabelecimento_alterou = $linha[38];
+
+$email_estabelecimento_alterou = $linha[39];
+
+$tipo = $linha[40];
+
+$banco = $linha[41];
+
+$agencia = $linha[42];
+
+$conta = $linha[43];
+
+$num_beneficio = $linha[44];
+
+
+
+$parc1 = $linha[45];
+
+$banco1 = $linha[46];
+
+$vencto1 = $linha[47];
+
+$compra1 = $linha[48];
+
+
+
+$parc2 = $linha[49];
+
+$banco2 = $linha[50];
+
+$vencto2 = $linha[51];
+
+$compra2 = $linha[52];
+
+
+
+$parc3 = $linha[53];
+
+$banco3 = $linha[54];
+
+$vencto3 = $linha[55];
+
+$compra3 = $linha[56];
+
+
+
+$parc4 = $linha[57];
+
+$banco4 = $linha[58];
+
+$vencto4 = $linha[59];
+
+$compra4 = $linha[60];
+
+
+
+$parc5 = $linha[61];
+
+$banco5 = $linha[62];
+
+$vencto5 = $linha[63];
+
+$compra5 = $linha[64];
+
+
+
+$parc6 = $linha[65];
+
+$banco6 = $linha[66];
+
+$vencto6 = $linha[67];
+
+$compra6 = $linha[68];
+
+
+
+$parc7 = $linha[69];
+
+$banco7 = $linha[70];
+
+$vencto7 = $linha[71];
+
+$compra7 = $linha[72];
+
+
+
+$num_beneficio2 = $linha[73];
+
+$num_beneficio3 = $linha[74];
+
+$num_beneficio4 = $linha[75];
+
+
+
+$dataprev2 = $linha[76];
+
+$obs2 = $linha[77];
+
+
+
+
+
+$dataprev = $linha[76];
+
+$cpf_rg = $linha[78];
+
+$comp_end = $linha[79];
+
+$comp_quit1 = $linha[80];
+
+$comp_quit2 = $linha[81];
+
+$comp_quit3 = $linha[82];
+
+$comp_quit4 = $linha[83];
+
+$comp_quit5 = $linha[84];
+
+$comp_quit6 = $linha[85];
+
+$comp_renda = $linha[86];
+
+$cpf_rg_testemunha = $linha[87];
+
+$mes_niver = $linha[88];
+
+$status_cliente = $linha[89];
+
+$tem_margem = $linha[90];
+$saldo1 = $linha[91];
+$saldo2 = $linha[92];
+$saldo3 = $linha[93];
+$saldo4 = $linha[94];
+$saldo5 = $linha[95];
+$saldo6 = $linha[96];
+$saldo7 = $linha[97];
+
+$local_trabalho = $linha[134];
+$fone_comercial = $linha[135];
+$newsletter = $linha[136];
+}
+
+?>
+
+
+  <?
+
+$usuario = $_SESSION['usuario'];
+$senha = $_SESSION['senha'];
+
+
+$sql = "SELECT * FROM admgeral where usuario = '$usuario' and senha = '$senha'";
+$res = mysql_query($sql);
+$reg = 0;
+echo "<tr>";
+while($linha=mysql_fetch_row($res)) {
+
+
+$nome_operador = $linha[1];
+$estab_pertence = $linha[44];
+
+}
+?>
+
+
+<?
+
+$codigo_orcamento_add = $_POST['codigo_orcamento_add'];
+$cod_prod_add = $_POST['cod_prod_add'];
+
+$codigo_orcamento_ret = $_POST['codigo_orcamento_ret'];
+$cod_prod_ret = $_POST['cod_prod_ret'];
+
+if(empty($cod_prod_ret)){
+	
+}
+else{
+$comando = "delete from `produtos_em_orcamento` where `produtos_em_orcamento`. `codigo_orcamento` = '$codigo_orcamento_ret' and codigoproduto = '$cod_prod_ret' limit 1 ";
+
+mysql_query($comando,$conexao);
+
+}
+
+$dataabertura = date('Y-m-d');
+$horaabertura = date('H:i:s');
+$diaabertura = date('d');
+$mesabertura = date('m');
+$anoabertura = date('Y');
+
+
+$datafechameno = date('d-m-Y');
+$horafechamento = $hora_atual;
+$diafechamento = date('d');
+$mesfechamento = date('m');
+$anofechamento = date('Y');
+
+$dia_inicial = $_POST['dia_inicial'];
+$mes_inicial = $_POST['mes_inicial'];
+$ano_inicial = $_POST['ano_inicial'];
+
+$dia_final = $_POST['dia_final'];
+$mes_final = $_POST['mes_final'];
+$ano_final = $_POST['ano_final'];
+
+
+$sql = "SELECT * FROM orcamentos where loja = '$estab_pertence' and operador = '$nome_operador' and status = 'Aberto'";
+$res = mysql_query($sql);
+while($linha=mysql_fetch_row($res)) {
+$registros = mysql_num_rows($res);
+
+}
+
+
+
+if($registros==0){
+$comando = "insert into orcamentos(condicao,loja,status,operador,dataabertura,horaabertura,diaabertura,mesabertura,anoabertura,codigo_cliente,cpf,nome)
+
+values('ORCAMENTO','$estab_pertence','Aberto','$nome_operador','$dataabertura','$horaabertura','$diaabertura','$mesabertura','$anoabertura','$codigo_cliente','$cpf_cliente','$nome')";
+ 
+mysql_query($comando,$conexao);
+ 
+ 
+$sql = "SELECT * FROM orcamentos where loja = '$estab_pertence' and operador = '$nome_operador' and status = 'Aberto' order by codigo_orcamento desc limit 1";
+$res = mysql_query($sql);
+while($linha=mysql_fetch_row($res)) {
+
+$codigo_orcamento_zero = $linha[0];
+$loja = $linha[6];
+$status = $linha[17];
+}
+
+}
+else{
+
+$sql = "SELECT * FROM orcamentos where loja = '$estab_pertence' and operador = '$nome_operador' and status = 'Aberto' order by codigo_orcamento desc limit 1";
+$res = mysql_query($sql);
+while($linha=mysql_fetch_row($res)) {
+
+$codigo_orcamento_um = $linha[0];
+$loja = $linha[6];
+$status = $linha[17];
+}
+
+
+
+}
+
+?>
+
+
+
+<?
+if($registros==0){
+	
+$codigo_orcamento = $codigo_orcamento_zero;
+
+}
+else{
+	
+$codigo_orcamento = $codigo_orcamento_um;
+
+}
+
+$item = $_POST['item'];
+$quant = $_POST['quant'];
+
+if(empty($quant)){
+
+$quantidade = "1";
+
+}
+else{
+
+$quantidade = $quant;
+
+}
+
+
+if(empty($item)){
+}
+else{
+	
+$sql = "SELECT * FROM produtos where nome_produto = '$item' limit 1";
+$res = mysql_query($sql);
+$reg = 0;
+echo "<tr>";
+while($linha=mysql_fetch_row($res)) {
+$reg++;
+
+$referencia = $linha[0];
+$foto = $linha[1];
+$material = $linha[2];
+$cor = $linha[3];
+$categoria = $linha[4];
+$sub_categoria = $linha[5];
+$descricao = $linha[6];
+$preco = $linha[7];
+$oferta = $linha[8];
+$preco_oferta = $linha[9];
+$data_hora = $linha[10];
+$codigoproduto = $linha[11];
+$foto2 = $linha[12];
+$foto3 = $linha[13];
+$foto4 = $linha[14];
+$cod_barras = $linha[15];
+$quant_estoque = $linha[16];
+$expedicao = $linha[17];
+$quant_disponivel = $linha[18];
+$quant_minima = $linha[19];
+$aparecer_site = $linha[20];
+$preco_compra = $linha[21];
+$frete = $linha[22];
+$margem_lucro = $linha[23];
+$impostos = $linha[24];
+$margem_lucro_informada = $linha[25];
+$impostos_informado = $linha[26];
+$nomeproduto = $linha[27];
+$fornecedor = $linha[28];
+$travesseiro1 = $linha[29];
+$travesseiro2 = $linha[30];
+
+
+$margem_folga = $linha[32];
+$margem_folga_decimal = $linha[33];
+
+}
+
+$total = bcmul($preco,$quantidade,2);
+
+$comando = "insert into produtos_em_orcamento(codigo_orcamento,loja,codigo_cliente,nome,endereco,numero,bairro,cidade,estado,telefone,celular,email,cep,cpf,dataorcamento,horaorcamento,codigoproduto,nomeproduto,categoria,precocompra,quant,preco,desconto,descontodecimal,descontomonetario,acrescimo,acrescimodecimal,acrescimomonetario,total,obs,operador)
+
+values('$codigo_orcamento','$loja','$codigo_cliente','$nome','$endereco','$numero','$bairro','$cidade','$estado','$telefone','$celular','$email','$cep','$cpf','$dataorcamento','$horaorcamento','$codigoproduto','$nomeproduto','$categoria','$precocompra','$quantidade','$preco','0','0','0','0','0','0','$total','$obs','$operador')";
+ 
+mysql_query($comando,$conexao);
+
+
+}
+?>
+
+
+<?
+
+//------------------INICIO DE ALTERAÇÃO DOS PRODUTOS NO ORÇAMENTO-------------------------
+
+$codigolancamento = $_POST['codigolancamento'];
+
+
+$cod_prod_at = $_POST['cod_prod_at'];
+
+
+$desconto_at = $_POST['desconto_at'];
+
+
+//$desconto_at2 = $_POST['desconto_at2'];
+//$desconto_at3 = $_POST['desconto_at3'];
+//$desconto_at4 = $_POST['desconto_at4'];
+
+$acrescimo_at = $_POST['acrescimo_at'];
+
+$quant_at = $_POST['quant_at'];
+
+if(empty($quant_at)){
+
+$quantidade_at = "1";
+
+}
+else{
+
+$quantidade_at = $quant_at;
+
+}
+
+
+
+if(empty($cod_prod_at)){
+
+}
+else{
+
+
+
+
+$sql = "SELECT * FROM produtos where codigo = '$cod_prod_at' limit 1";
+$res = mysql_query($sql);
+while($linha=mysql_fetch_row($res)) {
+
+
+
+$referencia = $linha[0];
+$foto = $linha[1];
+$material = $linha[2];
+$cor = $linha[3];
+$categoria = $linha[4];
+$sub_categoria = $linha[5];
+$descricao = $linha[6];
+$preco = $linha[7];
+$oferta = $linha[8];
+$preco_oferta = $linha[9];
+$data_hora = $linha[10];
+$codigoproduto = $linha[11];
+$foto2 = $linha[12];
+$foto3 = $linha[13];
+$foto4 = $linha[14];
+$cod_barras = $linha[15];
+$quant_estoque = $linha[16];
+$expedicao = $linha[17];
+$quant_disponivel = $linha[18];
+$quant_minima = $linha[19];
+$aparecer_site = $linha[20];
+$preco_compra = $linha[21];
+$frete = $linha[22];
+$margem_lucro = $linha[23];
+$impostos = $linha[24];
+$margem_lucro_informada = $linha[25];
+$impostos_informado = $linha[26];
+$nomeproduto = $linha[27];
+$fornecedor = $linha[28];
+$travesseiro1 = $linha[29];
+$travesseiro2 = $linha[30];
+
+
+$margem_folga = $linha[32];
+$margem_folga_decimal = $linha[33];
+
+$descontomaximo = $linha[34];
+
+}
+
+
+
+
+
+if($oferta=="Sim"){
+
+$total = bcmul($preco_oferta,$quantidade_at,2);
+
+}else{
+
+$total = bcmul($preco,$quantidade_at,2);
+
+}
+
+
+	
+if($desconto_at <= $descontomaximo){
+
+if($desconto_at <=5){
+
+$desconto_a_calcular1 = bcmul($desconto_at,1,2);
+
+
+$desconto_total_at = $desconto_a_calcular1;
+
+$descontodecimal_at = bcdiv($desconto_total_at,100,2);
+
+
+$valor_desconto = bcmul($total,$descontodecimal_at,2);
+
+$totalgeralcomdesconto = bcsub($total,$valor_desconto,2)*$quant_at;
+
+
+$sql2 = "select * from db";
+$res2 = mysql_query($sql2);
+while($linha=mysql_fetch_row($res2)) {
+
+
+$comando = "update `$linha[1]`.`produtos_em_orcamento` set `quant` = '$quantidade_at',`desconto` = '$desconto_at',`descontodecimal` = '$descontodecimal_at',`descontomonetario` = '$valor_desconto',`total` = '$totalgeralcomdesconto' where `produtos_em_orcamento`. `codigo` = '$codigolancamento' limit 1 ";
+}
+
+mysql_query($comando,$conexao);
+
+
+
+}
+else{
+
+if($desconto_at <=5){
+
+
+$desconto_a_calcular1 = $desconto_at;
+
+$descontodecimal_at_1 = bcdiv($desconto_a_calcular1,100,2);
+
+
+$valor_desconto_1 = bcmul($total,$descontodecimal_at_1,2);
+
+$totalcomdesconto_1 = bcsub($total,$valor_desconto_1,2);
+
+
+
+$valor_desconto = $valor_desconto_1;
+
+$totalgeralcomdesconto = $totalcomdesconto_1*$quant_at;
+
+
+$sql2 = "select * from db";
+$res2 = mysql_query($sql2);
+while($linha=mysql_fetch_row($res2)) {
+
+
+$comando = "update `$linha[1]`.`produtos_em_orcamento` set `quant` = '$quantidade_at',`desconto` = '$desconto_at',`descontodecimal` = '$descontodecimal_at',`descontomonetario` = '$valor_desconto',`total` = '$totalgeralcomdesconto' where `produtos_em_orcamento`. `codigo` = '$codigolancamento' limit 1 ";
+}
+
+mysql_query($comando,$conexao);
+
+
+}
+
+
+if(($desconto_at >=5.01) && ($desconto_at<=10)){
+
+//------------nivel desconto 1-----------------
+
+$desconto_a_calcular1 = 5;
+
+$descontodecimal_at_1 = bcdiv($desconto_a_calcular1,100,2);
+
+
+$valor_desconto_1 = bcmul($total,$descontodecimal_at_1,2);
+
+$totalcomdesconto_1 = bcsub($total,$valor_desconto_1,2);
+
+
+
+
+
+//--------nivel desconto 2-------------
+
+
+
+$calculadesconto2 = bcsub($desconto_at,$desconto_a_calcular1,2);
+
+if($calculadesconto2 <=5){
+
+$desconto_a_calcular2 = $calculadesconto2;
+
+}
+else{
+
+$desconto_a_calcular2 = 5;
+
+}
+
+$descontodecimal_at_2 = bcdiv($desconto_a_calcular2,100,2);
+
+
+$valor_desconto_2 = bcmul($totalcomdesconto_1,$descontodecimal_at_2,2);
+
+$totalcomdesconto_2 = bcsub($totalcomdesconto_1,$valor_desconto_2,2);
+
+
+$valor_desconto = bcadd($valor_desconto_1,$valor_desconto_2,2);
+
+$totalgeralcomdesconto = bcadd($totalcomdesconto_1,$totalcomdesconto_2,2)*$quant_at;
+
+
+
+$sql2 = "select * from db";
+$res2 = mysql_query($sql2);
+while($linha=mysql_fetch_row($res2)) {
+
+
+$comando = "update `$linha[1]`.`produtos_em_orcamento` set `quant` = '$quantidade_at',`desconto` = '$desconto_at',`descontodecimal` = '$descontodecimal_at',`descontomonetario` = '$valor_desconto',`total` = '$totalgeralcomdesconto' where `produtos_em_orcamento`. `codigo` = '$codigolancamento' limit 1 ";
+}
+
+mysql_query($comando,$conexao);
+
+}
+
+
+if(($desconto_at >=10.01) && ($desconto_at<=15)){
+
+//------------nivel desconto 1-----------------
+
+
+$desconto_a_calcular1 = 5;
+
+$descontodecimal_at_1 = bcdiv($desconto_a_calcular1,100,2);
+
+
+$valor_desconto_1 = bcmul($total,$descontodecimal_at_1,2);
+
+$totalcomdesconto_1 = bcsub($total,$valor_desconto_1,2);
+
+
+//------------nivel desconto 2-----------------
+
+
+$calculadesconto2 = bcsub($desconto_at,$desconto_a_calcular1,2);
+
+if($calculadesconto2 <=5){
+
+$desconto_a_calcular2 = $calculadesconto2;
+
+}
+else{
+
+$desconto_a_calcular2 = 5;
+
+}
+
+$descontodecimal_at_2 = bcdiv($desconto_a_calcular2,100,2);
+
+
+$valor_desconto_2 = bcmul($totalcomdesconto_1,$descontodecimal_at_2,2);
+
+$totalcomdesconto_2 = bcsub($totalcomdesconto_1,$valor_desconto_2,2);
+
+
+//------------nivel desconto 3-----------------
+
+$descontoacumulado_um_e_dois = bcadd($desconto_a_calcular1,$desconto_a_calcular2,2);
+
+
+$calculadesconto3 = bcsub($desconto_at,$descontoacumulado_um_e_dois,2);
+
+if($calculadesconto3 <=5){
+
+$desconto_a_calcular3 = $calculadesconto2;
+
+}
+else{
+
+$desconto_a_calcular3 = 5;
+
+}
+
+$descontodecimal_at_3 = bcdiv($desconto_a_calcular3,100,2);
+
+
+$valor_desconto_3 = bcmul($totalcomdesconto_2,$descontodecimal_at_3,2);
+
+$totalcomdesconto_3 = bcsub($totalcomdesconto_2,$valor_desconto_3,2);
+
+
+$sub_valor_desconto1 = bcadd($valor_desconto_1,$valor_desconto_2,2);
+$sub_valor_desconto2 = bcadd($valor_desconto_3,0,2);
+
+$valor_desconto = bcadd($sub_valor_desconto1,$sub_valor_desconto2,2);
+
+
+$sub_totalgeralcomdesconto1 = bcadd($totalcomdesconto_1,$totalcomdesconto_2,2);
+$sub_totalgeralcomdesconto2 = bcadd($totalcomdesconto_3,0,2);
+
+
+$totalgeralcomdesconto = bcadd($sub_totalgeralcomdesconto1,$sub_totalgeralcomdesconto2,2)*$quant_at;
+
+
+
+$sql2 = "select * from db";
+$res2 = mysql_query($sql2);
+while($linha=mysql_fetch_row($res2)) {
+
+
+$comando = "update `$linha[1]`.`produtos_em_orcamento` set `quant` = '$quantidade_at',`desconto` = '$desconto_at',`descontodecimal` = '$descontodecimal_at',`descontomonetario` = '$valor_desconto',`total` = '$totalgeralcomdesconto' where `produtos_em_orcamento`. `codigo` = '$codigolancamento' limit 1 ";
+}
+
+mysql_query($comando,$conexao);
+
+}
+
+
+
+if(($desconto_at >=15.01) && ($desconto_at<=20)){
+
+//------------nivel desconto 1-----------------
+
+
+$desconto_a_calcular1 = 5;
+
+$descontodecimal_at_1 = bcdiv($desconto_a_calcular1,100,2);
+
+
+$valor_desconto_1 = bcmul($total,$descontodecimal_at_1,2);
+
+$totalcomdesconto_1 = bcsub($total,$valor_desconto_1,2);
+
+
+//------------nivel desconto 2-----------------
+
+
+$calculadesconto2 = bcsub($desconto_at,$desconto_a_calcular1,2);
+
+if($calculadesconto2 <=5){
+
+$desconto_a_calcular2 = $calculadesconto2;
+
+}
+else{
+
+$desconto_a_calcular2 = 5;
+
+}
+
+$descontodecimal_at_2 = bcdiv($desconto_a_calcular2,100,2);
+
+
+$valor_desconto_2 = bcmul($totalcomdesconto_1,$descontodecimal_at_2,2);
+
+$totalcomdesconto_2 = bcsub($totalcomdesconto_1,$valor_desconto_2,2);
+
+
+//------------nivel desconto 3-----------------
+
+$descontoacumulado_um_e_dois = bcadd($desconto_a_calcular1,$desconto_a_calcular2,2);
+
+
+
+$calculadesconto3 = bcsub($desconto_at,$descontoacumulado_um_e_dois,2);
+
+if($calculadesconto3 <=5){
+
+$desconto_a_calcular3 = $calculadesconto2;
+
+}
+else{
+
+$desconto_a_calcular3 = 5;
+
+}
+
+$descontodecimal_at_3 = bcdiv($desconto_a_calcular3,100,2);
+
+
+$valor_desconto_3 = bcmul($totalcomdesconto_2,$descontodecimal_at_3,2);
+
+$totalcomdesconto_3 = bcsub($totalcomdesconto_2,$valor_desconto_3,2);
+
+
+//------------nivel desconto 4-----------------
+
+$descontoacumulado_um_e_dois = bcadd($desconto_a_calcular1,$desconto_a_calcular2,2);
+$descontoacumulado_tres = bcadd($desconto_a_calcular3,0,2);
+
+$descontoacumulado_um_dois_e_tres = bcadd($descontoacumulado_um_e_dois,$descontoacumulado_tres,2);
+
+$calculadesconto4 = bcsub($desconto_at,$descontoacumulado_um_dois_e_tres,2);
+
+if($calculadesconto4 <=5){
+
+$desconto_a_calcular4 = $calculadesconto3;
+
+}
+else{
+
+$desconto_a_calcular4 = 5;
+
+}
+
+$descontodecimal_at_4 = bcdiv($desconto_a_calcular4,100,2);
+
+
+$valor_desconto_4 = bcmul($totalcomdesconto_3,$descontodecimal_at_4,2);
+
+$totalcomdesconto_4 = bcsub($totalcomdesconto_3,$valor_desconto_4,2);
+
+
+
+
+$sub_valor_desconto1 = bcadd($valor_desconto_1,$valor_desconto_2,2);
+$sub_valor_desconto2 = bcadd($valor_desconto_3,$valor_desconto_4,2);
+
+$valor_desconto = bcadd($sub_valor_desconto1,$sub_valor_desconto2,2);
+
+
+$sub_totalgeralcomdesconto1 = bcadd($totalcomdesconto_1,$totalcomdesconto_2,2);
+$sub_totalgeralcomdesconto2 = bcadd($totalcomdesconto_3,$totalcomdesconto_4,2);
+
+
+$totalgeralcomdesconto = bcadd($sub_totalgeralcomdesconto1,$sub_totalgeralcomdesconto2,2)*$quant_at;
+
+
+}
+
+
+
+$soma_desconto_um_mais_dois = bcadd($desconto_a_calcular1,$desconto_a_calcular2,2);
+$soma_desconto_tres_mais_quatro = bcadd($desconto_a_calcular3,$desconto_a_calcular4,2);
+
+$somatoria_total_dos_descontos = bcadd($soma_desconto_um_mais_dois,$soma_desconto_tres_mais_quatro,2);
+
+
+$desconto_total_at = $somatoria_total_dos_descontos;
+
+
+
+}
+
+$descontodecimal_at = bcdiv($desconto_total_at,100,2);
+
+
+
+
+$sql2 = "select * from db";
+$res2 = mysql_query($sql2);
+while($linha=mysql_fetch_row($res2)) {
+
+
+$comando = "update `$linha[1]`.`produtos_em_orcamento` set `quant` = '$quantidade_at',`desconto` = '$desconto_at',`descontodecimal` = '$descontodecimal_at',`descontomonetario` = '$valor_desconto',`total` = '$totalgeralcomdesconto' where `produtos_em_orcamento`. `codigo` = '$codigolancamento' limit 1 ";
+}
+
+mysql_query($comando,$conexao);
+
+
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+if($desconto_at > $descontomaximo){
+
+
+if($desconto_at >"5"){
+
+$resto1 = bcsub($desconto_at,5,2);
+
+$desconto_a_calcular1 = "5";
+
+$descontodecimal_at_1 = bcdiv($desconto_a_calcular1,100,2);
+
+
+$valor_desconto_1 = bcmul($total,$descontodecimal_at_1,2);
+
+$totalcomdesconto_1 = bcsub($total,$valor_desconto_1,2);
+
+
+if(($resto1 >"5") && ($resto1 <"10")){
+
+$resto2 = $resto1;
+
+}
+else{
+
+$resto2 = bcsub($resto1,5,2);
+
+
+$desconto_a_calcular2 = bcmul($resto2,1,2);
+
+
+$descontodecimal_at_2 = bcdiv($desconto_a_calcular2,100,2);
+
+
+$valor_desconto_2 = bcmul($totalcomdesconto_1,$descontodecimal_at_2,2);
+
+$totalcomdesconto_2 = bcsub($totalcomdesconto_1,$valor_desconto_2,2);
+
+
+}
+
+
+if(($resto2 >"10") && ($resto2 <"15")){
+
+$resto3 = $resto2;
+
+}
+else{
+
+$resto3 = bcsub($resto2,5,2);
+
+
+$desconto_a_calcular3 = bcmul($resto3,1,2);
+
+
+$descontodecimal_at_3 = bcdiv($desconto_a_calcular3,100,2);
+
+
+$valor_desconto_3 = bcmul($totalcomdesconto_2,$descontodecimal_at_3,2);
+
+$totalcomdesconto_3 = bcsub($totalcomdesconto_2,$valor_desconto_3,2);
+
+
+}
+
+
+
+if(($resto3 >"15") && ($resto2 <"20")){
+
+$resto4 = $resto3;
+
+}
+else{
+
+$resto4 = bcsub($resto3,5,2);
+
+
+$desconto_a_calcular4 = bcmul($resto4,1,2);
+
+
+$descontodecimal_at_4 = bcdiv($desconto_a_calcular4,100,2);
+
+
+$valor_desconto_4 = bcmul($totalcomdesconto_3,$descontodecimal_at_4,2);
+
+$totalcomdesconto_4 = bcsub($totalcomdesconto_3,$valor_desconto_4,2);
+
+
+}
+
+
+
+$soma_desconto_um_mais_dois = bcadd($desconto_a_calcular1,$desconto_a_calcular2,2);
+$soma_desconto_tres_mais_quatro = bcadd($desconto_a_calcular3,$desconto_a_calcular4,2);
+
+$somatoria_total_dos_descontos = bcadd($soma_desconto_um_mais_dois,$soma_desconto_tres_mais_quatro,2);
+
+
+
+
+//$desconto_total_at = $somatoria_total_dos_descontos;
+
+$descontodecimal_at = bcdiv($somatoria_total_dos_descontos,100,2);
+
+
+}
+
+
+echo "<script>
+
+alert('ATENÇÃO!!!... VOCÊ TENTOU UM DESCONTO MAIOR QUE O PERMITIDO! O LIMITE MAXIMO DE DESCONTO PARA ESSE PRODUTO É $descontomaximo%.');
+
+</script>";
+
+}
+
+
+
+
+$sql2 = "select * from db";
+$res2 = mysql_query($sql2);
+while($linha=mysql_fetch_row($res2)) {
+
+
+$comando = "update `$linha[1]`.`produtos_em_orcamento` set `quant` = '$quantidade_at',`desconto` = '$desconto_at',`descontodecimal` = '$descontodecimal_at',`descontomonetario` = '$valor_desconto',`total` = '$totalgeralcomdesconto' where `produtos_em_orcamento`. `codigo` = '$codigolancamento' limit 1 ";
+}
+
+mysql_query($comando,$conexao);
+
+
+
+}
+
+
+
+
+
+//-------------------FIM DE ALTEREÇÃO DOS PRODUTOS EM ORÇAMENTO-------------------------------
+
+
+
+
+$sql = "SELECT * FROM fundo_navegacao";
+$res = mysql_query($sql);
+
+while($linha=mysql_fetch_row($res)) {
+?>
+
+
+<body bgcolor="#<? printf("$linha[1]"); ?>" 
+  
+<? } ?>
+<?
+$sql = "SELECT * FROM background";
+$res = mysql_query($sql);
+while($linha=mysql_fetch_row($res)) {
+?>
+
+background="background/<? printf("$linha[1]"); ?>" bgproperties="fixed">
+  
+<? } ?>
+<p>
+        <?
+$sql = "SELECT * FROM fundo_intermediaria";
+$res = mysql_query($sql);
+
+while($linha=mysql_fetch_row($res)) {
+
+$cor = $linha[1];	
+?>
+<? } ?>
+</p>
+      <form name="form1" method="post" action="historico_cliente.php">
+        <?
+$usuario = $_SESSION['usuario'];
+$senha = $_SESSION['senha'];
+?>
+        <input name="nome" type="hidden" id="nome" value="<? echo $nome; ?>">
+<input type="submit" name="Submit2" value="Voltar ao Historico do cliente">
+</form>
+<table width="100%"  border="0">
+        <tr>
+          <td colspan="3"><div align="left"><span class="style2">
+          Listando or&ccedil;amentos da loja:</span> <span class="style2"><? echo $loja; ?>
+          </span></div></td>
+        </tr>
+        <tr>
+          <td width="430">Cliente: <span class="style2"><? echo $nome; ?></span></td>
+          <td><div align="center">Total do Or&ccedil;amento:
+            <?
+
+$sql = "select sum(total) as total_liquido from produtos_em_orcamento where codigo_orcamento = '$codigo_orcamento'";
+
+$resultado=mysql_query($sql, $conexao);
+
+$linha=mysql_fetch_array($resultado);
+
+
+
+$valor_total_liquido = $linha['total_liquido'];
+
+$total_geral = bcadd($valor_total_liquido,0,2);
+
+echo "R$ ".$total_geral;
+
+
+
+
+$sql = "select * from db";
+$res = mysql_query($sql);
+while($linha=mysql_fetch_row($res)) {
+
+
+$comando = "update `$linha[1]`.`orcamentos` set `total_geral` = '$total_geral' where `orcamentos`. `codigo_orcamento` = '$codigo_orcamento' limit 1 ";
+}
+
+mysql_query($comando,$conexao);
+
+
+
+
+?>
+          </div></td>
+          <td width="403" rowspan="3" align="left" valign="top">
+          
+          
+            <div align="center">
+              <table width="100%" border="2">
+                <tr>
+                  <td><div align="center">Parcelamento em x vezes no cart&atilde;o x</div></td>
+                </tr>
+                <tr>
+                  <td><div align="center">
+                    <?  
+if(empty($quantparc)){ 
+
+ }
+ else{
+ 
+ $simulacao = bcdiv($total_geral,$quantparc,2);
+ 
+ } 
+ 
+ if($simulacao==""){
+	 
+}
+else{ 
+
+$cartao = $_POST['cartao'];
+
+echo "$quantparc X R$ $simulacao"; 
+
+
+$sql = "select * from db";
+$res = mysql_query($sql);
+while($linha=mysql_fetch_row($res)) {
+
+
+$comando = "update `$linha[1]`.`orcamentos` set `quantparc` = '$quantparc',`cartao` = '$cartao',`valorparcela` = '$simulacao' where `orcamentos`. `codigo_orcamento` = '$codigo_orcamento' limit 1 ";
+}
+
+mysql_query($comando,$conexao);
+
+
+}
+
+
+   ?>
+                  </div></td>
+                </tr>
+              </table>
+            </div></td>
+        </tr>
+        <tr>
+          <td>            <form action="imprime_orcamento_para_cliente.php" method="post" name="form5" target="_blank">
+            <?
+$usuario = $_SESSION['usuario'];
+$senha = $_SESSION['senha'];
+?>
+            <select name="codigo_orcamento" id="select2">
+              <option value="null" selected>Selecione
+              <?
+
+    $sql = "select * from orcamentos where loja = '$loja' and operador = '$nome_operador' order by codigo_orcamento desc";
+    $result = mysql_query($sql);
+    while($x=mysql_fetch_array($result)){
+	$registros_nesse_bordero = mysql_num_rows($result);
+
+  echo "<option>".$x['codigo_orcamento']."</option>";
+    }
+?>
+              </option>
+            </select>
+            <input type="submit" name="Submit4" value="Visualisar">
+          </form></td>
+          <td width="492"><form name="form7" method="post" action="">
+            <span class="style3">
+            <?
+$usuario = $_SESSION['usuario'];
+$senha = $_SESSION['senha'];
+?>
+            <input name="codigo_orcamento_finalizar" type="hidden" id="codigo_orcamento_finalizar" value="<? echo $codigo_orcamento; ?>">
+            </span>
+            <input name="datafechamento" type="hidden" id="datafechamento" value="<? echo date('Y-m-d'); ?>">
+            <input name="horafechamento" type="hidden" id="horafechamento" value="<? echo $hora_atual; ?>">
+            <span class="style3"><strong><font color="#0000FF">
+            <input name="status" type="hidden" id="status" value="<? echo "Finalizado"; ?>">
+            <input name="quantparc" type="hidden" id="quantparc" value="<? echo $simulacao; ?>">
+            <input name="cartao" type="hidden" id="cartao" value="<? echo $cartao; ?>">
+            </font></strong></span>
+            <input type="submit" name="Submit32" value="Finalizar">
+          </form></td>
+        </tr>
+        <tr>
+          <td colspan="2"><span class="style6">
+          <?
+if($registros==0){
+echo "Seu orçamento foi aberto com sucesso! Nº ". $codigo_orcamento;
+}			
+else{
+echo "$nome_operador já possui um orçamento em aberto! Nº ". $codigo_orcamento;
+}
+?>
+          </span>            <div align="center"></div>          <div align="center">
+          </div></td>
+  </tr>
+      </table>
+            <table width="100%" border="0">
+              <tr>
+                <td><form name="form6" method="post" action="orcamento.php">
+                  <strong>Adicionar produto
+                    <select name="item" id="select7">
+                      <option selected></option>
+                      <?
+
+
+    $sql = "select * from produtos order by nome_produto asc";
+    $result = mysql_query($sql);
+    while($x=mysql_fetch_array($result)){
+  echo "<option>".$x['nome_produto']."</option>";
+    }
+?>
+                    </select>
+                    Quantidade
+                  <input name="quant" type="text" id="quant" size="3">
+                  </strong>
+                  <input type="submit" name="Submit" value="Adicionar">
+                </form></td>
+                <td width="40%"><form name="form4" method="post" action="orcamento.php">
+                  Parcelamento no cart&atilde;o
+                  <input name="codigo_orcamento" type="hidden" id="codigo_orcamento" value="<? echo $codigo_orcamento; ?>">
+<strong>
+<select name="cartao" id="cartao">
+                    <option selected><? echo $cartao; ?></option>
+                    <?
+
+
+    $sql = "select * from cartoes order by cartao asc";
+    $result = mysql_query($sql);
+    while($x=mysql_fetch_array($result)){
+  echo "<option>".$x['cartao']."</option>";
+    }
+?>
+                  </select>
+                  </strong>em <strong>
+                  <select name="quantparc" id="item">
+                    <option selected><? echo $quantparc; ?></option>
+                    <?
+
+
+    $sql = "select * from quantparc order by quantparc asc";
+    $result = mysql_query($sql);
+    while($x=mysql_fetch_array($result)){
+  echo "<option>".$x['quantparc']."</option>";
+    }
+?>
+                  </select>
+                  </strong> vezes
+                  <input type="submit" name="button2" id="button2" value="Simular">
+                </form></td>
+              </tr>
+            </table>
+<p>&nbsp;</p>
+            <div align="center"></div>
+            <table width="100%"  border="0">
+              <tr>
+                <td>
+</td>
+              </tr>
+</table>            
+            <table width="100%"  border="0">
+              <tr bgcolor="#ffffff">
+                <td>&nbsp;</td>
+                <td class="style3">&nbsp;</td>
+                <td class="style3">&nbsp;</td>
+                <td class="style3">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td colspan="4"><div align="center" class="style3"><strong>NIVEL DE DESCONTO</strong></div></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr bgcolor="#ffffff">
+                <td><div align="center">Codigo Produto</div></td>
+                <td class="style3"><div align="center">Nome Produto</div></td>
+                <td class="style3"><div align="center">Categoria</div></td>
+                <td class="style3"><div align="center">Pre&ccedil;o</div></td>
+                <td><div align="center" class="style3">Quantidade</div></td>
+                <td><div align="center">1</div></td>
+                <td><div align="center"></div></td>
+                <td><div align="center"></div></td>
+                <td><div align="center"></div></td>
+                <td><div align="center" class="style3">Desconto Monetario</div></td>
+                <td><div align="center"><span class="style3">Total Produtos</span></div></td>
+                <td><div align="center" class="style3"></div></td>
+              </tr>
+              <?
+			  
+//$sql = "SELECT * FROM propostas where nome_operador = '$nome_operador' and status_fisico = 'Pendente' and num_bordero = '' and prazo_final between '$data_inicio_busca' and '$data_atual' order by num_proposta asc";
+
+$sql = "SELECT * FROM produtos_em_orcamento where codigo_orcamento = '$codigo_orcamento'";
+
+$res = mysql_query($sql);
+while($linha=mysql_fetch_row($res)) {
+
+
+
+$codigolancamento = $linha[0];
+
+$codigo_orcamento = $linha[1];
+$codigoproduto = $linha[17];
+$nomeproduto = $linha[18];
+$categoria = $linha[19];
+$quant = $linha[21];
+$preco = $linha[22];
+$desconto = $linha[23];
+$descontodecimal = $linha[24];
+$descontomonetario = $linha[25];
+$acrescimo = $linha[26];
+$acrescimodecimal = $linha[27];
+$acrescimomonetario = $linha[28];
+$total = $linha[29];
+
+
+
+
+
+
+?>
+              <tr>
+                <td width="19%"><div align="center" class="style3">
+                    <form name="form2" method="post" action="orcamento.php">
+                      <?
+$usuario = $_SESSION['usuario'];
+$senha = $_SESSION['senha'];
+?>
+                      <? echo $num_proposta;?><strong><font color="#0000FF">
+                      <input name="codigo_orcamento_ret" type="hidden" id="status_proposta4" value="<? echo $codigo_orcamento; ?>">
+                      <input name="cod_prod_ret" type="hidden" id="nome_operador5" value="<? echo $codigoproduto; ?>">
+                      </font></strong>
+                      <input type="submit" name="Submit3" value="<? echo "$codigoproduto - Retirar"; ?> ">
+                    </form>
+                </div></td>
+                <td width="16%" class="style3"><div align="center"><? echo $nomeproduto;?></div></td>
+                <form name="form3" method="post" action="orcamento.php">
+                
+                <td width="4%" class="style3"><div align="center"><? echo $categoria;?></div></td>
+                <td width="4%" class="style3"><div align="center"><? if($oferta=="Sim"){ echo $preco_oferta; } else{ echo $preco; } ?></div></td>
+                <td width="4%"><div align="center" class="style3">
+                  <input name="quant_at" type="text" id="quant_at" value="<? echo $quant; ?>" size="3">
+                </div></td>
+                <td width="3%"><div align="center" class="style3">
+                  <input name="desconto_at" type="text" id="desconto_at" value="<? echo $desconto; ?>" size="3">
+                </div></td>
+                <td width="4%"><div align="center"><? echo $valor_desconto_1; ?> <? echo $totalcomdesconto_1; ?></div></td>
+                <td width="4%"><div align="center"></div></td>
+                <td width="4%"><div align="center"></div></td>
+                
+                 
+                <td width="13%"><div align="center" class="style3"><? echo $descontomonetario;?></div></td>
+                <td width="14%"><div align="center"><span class="style3"><? echo $total;?></span></div></td>
+                <td width="11%">
+                  <div align="center" class="style3">
+                    <strong><font color="#0000FF">
+                    <input name="codigolancamento" type="hidden" id="codigolancamento" value="<? echo $codigolancamento; ?>">
+                    <input name="cod_prod_at" type="hidden" id="cod_prod_at" value="<? echo $codigoproduto; ?>">
+                    </font></strong>
+                    <input type="submit" name="button" id="button" value="Atualizar">
+                  </div></td></form>
+                <?
+if($reg==1){
+echo "</tr>";
+$reg=0;
+}
+?>
+                <? } ?>
+              <tr>
+                <td><span class="style3"></span></td>
+                <td class="style3"><div align="center"></div></td>
+                <td class="style3"><div align="center"></div></td>
+                <td class="style3"><div align="center"></div></td>
+                <td><span class="style3"></span></td>
+                <td><span class="style3"></span></td>
+                <td><div align="center"></div></td>
+                <td><div align="center"></div></td>
+                <td><div align="center"></div></td>
+                <td><span class="style3"></span></td>
+                <td><div align="center"></div></td>
+                <td><span class="style3"></span></td>
+            </table>
+<p><strong></strong></p>
+<p><strong></strong></p>
+<p><strong></strong></p>
+
+
+
+
+
+</body>
+</html>
+<?  ?>

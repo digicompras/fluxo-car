@@ -1,0 +1,475 @@
+<html>
+<head>
+<script language="JavaScript">
+// --------------------------------------------------------------------
+// TITULO : INDEX.HTML
+// DESCRICAO : CONSULTA DO HISTÓRICO DE CRÉDITOS - FRAMESET PRINCIPAL - INTERNET
+// CRIACAO : 11/04/2002
+// ALTERACAO : 29/05/2002
+// ORIGENS :
+// DESTINOS :
+// CONTEXTOS : HISCRE
+// --------------------------------------------------------------------
+var RAIZ_HTML_GATEWAY = "/cws";
+var RAIZ_HTML_MAINFRAME = "/CWS/BIN/imagem91.asp";
+var RAIZ_COMS_BIN = "/CWS/BIN/imagem91.asp";
+var CONTEXTO = "/CONTEXTO/HISCRE/HISCRENET2.asp";
+var nb;
+var erro = '';
+var erroconfere = '';
+var exibeErro = '';
+</script>
+</head>
+<frameset cols="*">
+<frame src="hiscrenet2.asp" name="principal">
+<html>
+<head>
+<title>Histórico de Créditos - Pesquisa Individual</title>
+<script src="/cws/bin/generico.js">
+Reload the page to get source for: http://www010.dataprev.gov.br/cws/bin/generico.js
+</script>
+<script language="JavaScript">
+function atualiza() {
+if (document.frmDados.at.value == 1)
+{
+document.frmDados.at.value = 0;
+window.location.reload();
+}
+document.frmDados.nb.focus()
+}
+function SoEspaco(texto) {
+var i
+for (i = 0; i < texto.length; i++) {
+if (texto.substring(i, i+1) != ' ')
+return false
+}
+return true
+}
+function ZeroEsq(num) {
+if ((num < 10) && (num.length < 2))
+return '0' + num
+else
+return num
+}
+/*
+função: ValidaEntrada (faz a validação de nb, dia, mês a ano)
+autores: José Eduardo G. Medeiros / Juliana J. Leroy
+data: 15/04/2002
+parâmetros: nenhum
+*/
+function PularCampo(NuOrdemCampo)
+{
+// alert(event.keyCode);
+var tecla = event.keyCode;
+var teclaVolta = 8;
+var teclaDelete = 46;
+var teclaTab = 9;
+var teclaSetaEsq = 37;
+var teclaSetaDir = 39;
+if( tecla != teclaVolta && tecla != teclaDelete &&
+tecla != teclaTab && tecla != teclaSetaDir &&
+tecla != teclaSetaEsq )
+{
+switch (NuOrdemCampo)
+{
+case 1:
+if (document.frmDados.nb.value.length == 10)
+document.frmDados.DiaNascimento.focus();
+break;
+case 2:
+if (document.frmDados.DiaNascimento.value.length == "2")
+document.frmDados.MesNascimento.focus();
+break;
+case 3:
+if (document.frmDados.MesNascimento.value.length == "2")
+document.frmDados.AnoNascimento.focus();
+break;
+case 4:
+if (document.frmDados.AnoNascimento.value.length == "4")
+document.frmDados.nome.focus();
+break;
+}
+}
+}
+function ValidaEntrada()
+{
+ValorNB = document.frmDados.nb.value;
+DiaNascimento = document.frmDados.DiaNascimento.value;
+MesNascimento = document.frmDados.MesNascimento.value;
+AnoNascimento = document.frmDados.AnoNascimento.value;
+if (SoEspaco(ValorNB))
+{
+alert("O Número do Benefício não pode ser deixado em branco.");
+document.frmDados.nb.focus();
+return false;
+}
+if (CalculaDigitoMod11(ValorNB,1,9))
+{
+alert("Digito Verificador não confere.");
+document.frmDados.nb.focus();
+return false;
+}
+if (SoEspaco(DiaNascimento))
+{
+alert("O Dia do Nascimento é obrigatório.");
+document.frmDados.DiaNascimento.focus();
+return false;
+}
+if (SoEspaco(MesNascimento))
+{
+alert("O Mês do Nascimento é obrigatório.");
+document.frmDados.MesNascimento.focus();
+return false;
+}
+if (SoEspaco(AnoNascimento))
+{
+alert("O Ano do Nascimento é obrigatório.");
+document.frmDados.AnoNascimento.focus();
+return false;
+}
+if (AnoNascimento < 1870)
+{
+alert("Ano de Nascimento inválido.");
+document.frmDados.AnoNascimento.focus();
+return false;
+}
+var diaHoje = "9";
+var mesHoje = "4";
+var anoHoje = "2013";
+Dateinv = " " + anoHoje + ZeroEsq(mesHoje,2) + ZeroEsq(diaHoje,2);
+// alert (Dateinv);
+DataNasc = AnoNascimento + ZeroEsq(MesNascimento,2) + ZeroEsq(DiaNascimento,2);
+if (parseInt(DataNasc) > parseInt(Dateinv))
+{
+alert("Data de Nascimento maior que a data atual.");
+document.frmDados.DiaNascimento.focus();
+return false;
+}
+if (isNaN(parseInt(MesNascimento)) || MesNascimento < 1 || MesNascimento > 12 )
+{
+alert('Mês inválido.\n\nFavor informar um mês entre 01 e 12.');
+document.frmDados.MesNascimento.focus();
+return false;
+}
+else
+{
+if ((MesNascimento == 1 || MesNascimento == 3 || MesNascimento == 5 || MesNascimento == 7 || MesNascimento == 8 || MesNascimento == 10 || MesNascimento == 12 ) && DiaNascimento > 31)
+{
+alert('Dia inválido para o mês.\n\nFavor informar um dia entre 01 e 31.');
+document.frmDados.DiaNascimento.focus();
+return false;
+}
+else
+{
+if ((MesNascimento == 4 || MesNascimento == 6 || MesNascimento == 9|| MesNascimento == 11 ) && DiaNascimento > 30 )
+{
+alert('Dia inválido para o mês.\n\nFavor informar um dia entre 01 e 30.');
+document.frmDados.DiaNascimento.focus();
+return false;
+}
+else
+{
+if (MesNascimento == 2)
+{
+if (AnoNascimento%4 != 0)
+{
+if (DiaNascimento > 28)
+{
+alert('Dia inválido para o mês.\n\nFavor informar um dia entre 01 e 28.');
+document.frmDados.DiaNascimento.focus();
+return false;
+}
+}
+else
+{
+if (DiaNascimento > 29)
+{
+alert('Dia inválido para o mês.\n\nFavor informar um dia entre 01 e 29.');
+document.frmDados.DiaNascimento.focus();
+return false;
+}
+}
+}
+}
+}
+}
+if (document.frmDados.nome.value == "")
+{
+alert("Informe o nome do beneficiário.");
+document.frmDados.nome.focus();
+return (false);
+}
+if (document.frmDados.cpf.value == "" )
+{
+alert("Informe o CPF do beneficiário.");
+document.frmDados.cpf.focus();
+return (false);
+}
+if (document.frmDados.txtImagem.value == "")
+{
+alert("Informe os caracteres exibidos na imagem.");
+document.frmDados.txtImagem.focus();
+return (false);
+}
+// document.frmDados.DataNascimento.value = ZeroEsq(DiaNascimento) + '/' + ZeroEsq(MesNascimento) + '/' + AnoNascimento;
+document.frmDados.DataNascimento.value = ZeroEsq(DiaNascimento) + ZeroEsq(MesNascimento) + AnoNascimento;
+parent.nb = ValorNB;
+parent.RAIZ_CPF = document.frmDados.cpf.value;
+parent.RAIZ_NOME = document.frmDados.nome.value + " ";
+parent.RAIZ_NASCIMENTO = document.frmDados.DiaNascimento.value + "/" + document.frmDados.MesNascimento.value + "/" + document.frmDados.AnoNascimento.value;
+parent.link = "HISCRE/hiscrenet2.asp";
+parent.sistema = "Extrato de Pagamentos";
+document.frmDados.txtImagem.value = document.frmDados.txtImagem.value;
+document.frmDados.at.value = 1;
+document.getElementById("botao").value = " Aguarde... ";
+document.getElementById("botao").disabled = true;
+document.frmDados.submit()
+}
+</script>
+<script language="JavaScript">
+document.write('<body alink="#0000ff" background="' + parent.RAIZ_HTML_GATEWAY + '/CONTEXTO/HISCRE/IMAGENS/fnada.gif" bgcolor="#ffffff" link="#004080"');
+document.write('text="#000000" vlink="#ff0000" topMargin=0 marginheight="0" marginwidth="0" ONLOAD="atualiza ()">');
+</script>
+</head>
+<body vlink="#ff0000" text="#000000" marginwidth="0" marginheight="0" link="#004080" bgcolor="#ffffff" background="/cws/CONTEXTO/HISCRE/IMAGENS/fnada.gif" alink="#0000ff" onload="atualiza ()" topmargin="0" bottommargin="0" rightmargin="0" leftmargin="0">
+<script language="JavaScript">
+document.write('<TABLE border=0 cellPadding=0 cellSpacing=0 height=70 width="100%" name="topo"><TBODY>');
+document.write(' <TR bgColor=#065ca5>');
+document.write(' <TD align=left vAlign=top>');
+document.write(' <TABLE border=0 cellPadding=0 cellSpacing=0>');
+document.write(' <TBODY>');
+document.write(' <TR>');
+document.write(' <TD align=left vAlign=top><A href="http://www.mpas.gov.br/"><IMG ');
+document.write(' border=0 height=70 ');
+document.write(' src="' + parent.RAIZ_HTML_GATEWAY + '/CONTEXTO/HISCRE/IMAGENS/KO.gif" ');
+document.write(' width=94></A></TD>');
+document.write(' <TD align=left vAlign=top><BR><A href="http://www.mpas.gov.br/"><IMG ');
+document.write(' border=0 height=41 ');
+document.write(' src="' + parent.RAIZ_HTML_GATEWAY + '/CONTEXTO/HISCRE/IMAGENS/previdencia.gif" ');
+document.write(' width=290></A></TD></TR></TBODY></TABLE></TD>');
+document.write(' <TD align=right vAlign=top><IMG ');
+document.write(' border=0 height=62 hspace=0 ');
+document.write(' src="' + parent.RAIZ_HTML_GATEWAY + '/CONTEXTO/HISCRE/IMAGENS/padrao2girado.gif" ');
+document.write(' width=70></A></TD></TR></TBODY></TABLE>');
+</script>
+<table width="100%" height="70" cellspacing="0" cellpadding="0" border="0" name="topo">
+<tbody>
+<tr bgcolor="#065ca5">
+<td valign="top" align="left">
+<table cellspacing="0" cellpadding="0" border="0">
+<tbody>
+<tr>
+<td valign="top" align="left">
+<a href="http://www.mpas.gov.br/">
+<img width="94" height="70" border="0" src="/cws/CONTEXTO/HISCRE/IMAGENS/KO.gif">
+</a>
+</td>
+<td valign="top" align="left">
+<br>
+<a href="http://www.mpas.gov.br/">
+<img width="290" height="41" border="0" src="/cws/CONTEXTO/HISCRE/IMAGENS/previdencia.gif">
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign="top" align="right">
+<img width="70" hspace="0" height="62" border="0" src="/cws/CONTEXTO/HISCRE/IMAGENS/padrao2girado.gif">
+</td>
+</tr>
+</tbody>
+</table>
+<center>
+<font face="Arial" color="blue">
+<h2 align="center">Extrato de Pagamentos</h2>
+</font>
+</center>
+<font face="Arial" color="blue">
+<script language="JavaScript">
+document.write('<form METHOD="POST" name="frmDados" action="' + parent.RAIZ_COMS_BIN + '">');
+</script>
+<form action="/CWS/BIN/imagem91.asp" name="frmDados" method="POST">
+<div align="center">
+<center>
+<table width="571" cellspacing="7" border="0">
+<tbody>
+<tr>
+<td>
+<b>Número do Benefício :</b>
+<input type="text" align="left" onkeyup="PularCampo(1);" onkeydown="PularCampo(1);" size="11" maxlength="10" name="nb">
+<br>
+<font size="2" face="Arial" color="blue">Informe o número do seu benefício sem pontos ou barras.</font>
+</td>
+</tr>
+<input type="hidden" name="DataNascimento">
+<input type="hidden" value="HISCRE" name="SIW_Contexto">
+<input type="hidden" value="EXTRATO" name="SIW_Transacao_Web">
+<input type="hidden" value="SISBEN" name="SIW_Window">
+<input type="hidden" value="10,8" name="SIW_Layout">
+<input type="hidden" value="0" name="at">
+<tr>
+<td>
+<hr>
+</td>
+</tr>
+<tr>
+<td>
+<b>Data de Nascimento :</b>
+<input type="text" align="left" size="3" onkeyup="PularCampo(2);" onkeydown="PularCampo(2);" maxlength="2" name="DiaNascimento">
+<strong>
+<font size="5"> / </font>
+</strong>
+<input type="text" align="left" size="3" onkeyup="PularCampo(3);" onkeydown="PularCampo(3);" maxlength="2" name="MesNascimento">
+<strong>
+<font size="5"> / </font>
+</strong>
+<input type="text" align="left" size="5" onkeyup="PularCampo(4);" onkeydown="PularCampo(4);" maxlength="4" name="AnoNascimento">
+<br>
+<font size="2" face="Arial" color="blue">
+Informe sua Data de Nascimento com 4 algarismos no ano.
+<br>
+Exemplo : 25/12/1986.
+</font>
+</td>
+</tr>
+<tr>
+<td>
+<hr>
+</td>
+</tr>
+<tr>
+<td>
+<table width="100%" cellspacing="0" cellpadding="2" border="0">
+<tbody>
+<tr>
+<td>
+<b>
+<font size="3" face="verdana">Nome do beneficiário:</font>
+</b>
+<input type="text" align="left" size="20" maxlength="40" name="nome">
+</td>
+<td>
+<b>
+<font size="3" face="verdana">CPF:</font>
+</b>
+<input type="text" align="left" size="11" maxlength="11" name="cpf">
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<font size="2" face="verdana" color="blue">Informe o nome e CPF do beneficiário (sem pontos, traços ou barras).</font>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+<table cellspacing="3" cellpadding="5" border="0">
+<tbody>
+<tr align="center">
+<td>
+<div align="left">
+<p>
+</div>
+</td>
+<script>
+document.write(' <td><div align="left"><img id="imagem" src="' + parent.RAIZ_HTML_GATEWAY + '/bin/dtpv.asp"></div></td>');
+function Reload(){
+var agora;
+document.getElementById("imagem").src = parent.RAIZ_HTML_GATEWAY + "/bin/dtpv.asp?" + agora;
+document.frmDados.txtImagem.select();
+}
+</script>
+<td>
+<div align="left">
+<img id="imagem" src="/cws/bin/dtpv.asp">
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</p>
+</center>
+</div>
+<div align="center">
+<center>
+<h2>
+<input id="botao" type="button" onclick="ValidaEntrada()" value="Consulta">
+</h2>
+</center>
+</div>
+<input type="hidden" value="Tue Apr 9 18:53:24 UTC-0300 2013" name="hoje">
+</form>
+<center>
+<font color="red">
+<strong>
+<script language="JavaScript">
+if (parent.erro != '') {
+document.write (parent.erro);
+parent.erro = '';
+}
+</script>
+</strong>
+</font>
+</center>
+<script language="JavaScript">
+document.write('<TABLE bgColor=#065ca5 border=0 cellPadding=0 cellSpacing=0 height=35 width="100%">');
+document.write(' <TBODY>');
+document.write(' <TR>');
+document.write(' <TD align=left vAlign=top width="1%"><IMG border=0 height=62 ');
+document.write(' src="' + parent.RAIZ_HTML_GATEWAY + '/CONTEXTO/HISCRE/IMAGENS/esquerda3b.gif" ');
+document.write(' width=70></TD>');
+document.write(' <TD align=left width="60%"><IMG border=0 height=34 ');
+document.write(' src="' + parent.RAIZ_HTML_GATEWAY + '/CONTEXTO/HISCRE/IMAGENS/rodape_dtp.gif" ');
+document.write(' width=93><BR><IMG alt="bluebottom2.gif (971 bytes)" height=10 ');
+document.write(' src="' + parent.RAIZ_HTML_GATEWAY + '/CONTEXTO/HISCRE/IMAGENS/bluebottom2.gif" ');
+document.write(' width=42><IMG border=0 ');
+document.write(' src="' + parent.RAIZ_HTML_GATEWAY + '/CONTEXTO/HISCRE/IMAGENS/dtpextenso2d.gif"><BR></TD>');
+document.write(' <TD align=right width="40%"><A ');
+document.write(' href="mailto:webmaster.dtp@rjo.dataprev.gov.br" ');
+document.write(' title="Fale com a DATAPREV"><IMG border=0 height=25 ');
+document.write(' src="' + parent.RAIZ_HTML_GATEWAY + '/CONTEXTO/HISCRE/IMAGENS/mailslot.gif" ');
+document.write(' width=36></A></TD>');
+document.write(' <TD align=right vAlign=top width="1%"><IMG border=0 height=62 ');
+document.write(' src="' + parent.RAIZ_HTML_GATEWAY + '/CONTEXTO/HISCRE/IMAGENS/padrao1girado.gif" ');
+document.write(' width=70></TD></TR>');
+document.write(' </TBODY>');
+document.write('</TABLE>');
+</script>
+<table width="100%" height="35" cellspacing="0" cellpadding="0" border="0" bgcolor="#065ca5">
+<tbody>
+<tr>
+<td width="1%" valign="top" align="left">
+<img width="70" height="62" border="0" src="/cws/CONTEXTO/HISCRE/IMAGENS/esquerda3b.gif">
+</td>
+<td width="60%" align="left">
+<img width="93" height="34" border="0" src="/cws/CONTEXTO/HISCRE/IMAGENS/rodape_dtp.gif">
+<br>
+<img width="42" height="10" src="/cws/CONTEXTO/HISCRE/IMAGENS/bluebottom2.gif" alt="bluebottom2.gif (971 bytes)">
+<img border="0" src="/cws/CONTEXTO/HISCRE/IMAGENS/dtpextenso2d.gif">
+<br>
+</td>
+<td width="40%" align="right">
+<a title="Fale com a DATAPREV" href="mailto:webmaster.dtp@rjo.dataprev.gov.br">
+<img width="36" height="25" border="0" src="/cws/CONTEXTO/HISCRE/IMAGENS/mailslot.gif">
+</a>
+</td>
+<td width="1%" valign="top" align="right">
+<img width="70" height="62" border="0" src="/cws/CONTEXTO/HISCRE/IMAGENS/padrao1girado.gif">
+</td>
+</tr>
+</tbody>
+</table>
+<script language="JavaScript">
+parent.exibeErro = "";
+</script>
+</font>
+</body>
+</html>
+</frame>
+</frameset>
+</html>

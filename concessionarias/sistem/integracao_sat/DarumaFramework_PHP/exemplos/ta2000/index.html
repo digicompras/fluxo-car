@@ -1,0 +1,351 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+	<title>M&eacute;todos TA2000</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
+        <link rel="stylesheet" href="../css/padrao.css" type="text/css"/>
+        <script type="text/javascript" src="../js/geral.js"></script>
+    </head>
+    <body>
+
+        <div id="pagina">
+
+            <h3>
+                M&eacute;todos TA2000 <br/>
+                <small>
+                    Selecione um m&eacute;todo, passe os par&acirc;metros (se necess&aacute;rio) <br/>
+                    em seguida clique em um dos bot&otilde;es "Executar m&eacute;todo selecionado".
+                </small>
+            </h3>
+
+            <form action = "metodos.TA2000.php" method="post">
+
+                <input class ="submit" type="submit" value="Enviar m&eacute;todo selecionado"/>
+
+		<div class="atalhos">
+		    
+		    <a href="#envio" title="Pula para as Fun&ccedil;&otilde;es de Envio">
+			&darr; Envio
+		    </a>
+
+		    <a href="#impressao" title="Pula para as Fun&ccedil;&otilde;es de Impress&ati&atilde;o">
+			&darr; Impress&atilde;o
+		    </a>
+		    
+		    <a href="#registro" title="Pula para as fun&ccedil;&otilde;es de Registro">
+			&darr; Registro
+		    </a>
+
+		    <a href="#retorno" title="Pula para as fun&ccedil;&otilde;es de Retorno">
+			&darr; Retorno
+		    </a>
+
+		</div>
+
+                <ul class="metodos">
+
+                    <li id="envio" class="selecionado">
+                        <input type="radio" name="metodo" checked="checked" value="eAtivarCampo_TA2000_Daruma"/>
+                        eAtivarCampo_TA2000_Daruma <br/>
+                        <input class="texto" type="text" name="eAtivarCampo_TA2000_DarumaNumeroCampo"/> N&uacute;mero Campo
+
+                    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="fnEncerrar_TA2000_Daruma"/>
+			fnEncerrar_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="fnEncerrar_TA2000_DarumaShutDown"/> Shut Down <br/>
+		    </li>
+		    
+
+		    <li id="impressao">
+			<input type="radio" name="metodo" value="iAdicionarCampo_TA2000_Daruma"/>
+			iAdicionarCampo_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="iAdicionarCampo_TA2000_DarumaValorAtual"/> Valor Atual <br/>
+			<input class = "texto" type="text" name="iAdicionarCampo_TA2000_DarumaTipoDado"/> Tipo Dado <br/>
+			<input class = "texto" type="text" name="iAdicionarCampo_TA2000_DarumaLinha"/> Linha <br/>
+			<input class = "texto" type="text" name="iAdicionarCampo_TA2000_DarumaColuna"/> Coluna <br/>
+			<input class = "texto" type="text" name="iAdicionarCampo_TA2000_DarumaTamanhoDisplay"/> Tamanho Display
+
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="iApagarCaracter_TA2000_Daruma"/>
+			iApagarCaracter_TA2000_Daruma <br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="iCarriageReturn_TA2000_Daruma"/>
+			iCarriageReturn_TA2000_Daruma <br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="icomEnviarByte_TA2000_Daruma"/>
+			icomEnviarByte_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="icomEnviarByte_TA2000_DarumaByte"/> Byte
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="iDesabilitarCursor_TA2000_Daruma"/>
+			iDesabilitarCursor_TA2000_Daruma <br />
+
+		    </li>
+
+		    <li>			
+			<input type="radio" name="metodo" value="iEntrarDadosDisplay_TA2000_Daruma"/>
+			iEntrarDadosDisplay_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="iEntrarDadosDisplay_TA2000_DarumaEco"/> Eco <br />
+			<input class = "texto" type="text" name="iEntrarDadosDisplay_TA2000_DarumaTipoDados"/> Tipo Dados <br />
+			<input class = "texto" type="text" name="iEntrarDadosDisplay_TA2000_DarumaTamanhoParametros"/> Tamanho Par&acirc;metros <br />
+			<input class = "texto" type="text" name="iEntrarDadosDisplay_TA2000_DarumaESC"/> ESC <br />
+			<input class = "texto" type="text" name="iEntrarDadosDisplay_TA2000_DarumaLinhaParametro"/>  Linha Par&acirc;metros <br />
+			<input class = "texto" type="text" name="iEntrarDadosDisplay_TA2000_DarumaColunaParametro"/> Coluna Par&acirc;metros <br />
+			<input class = "texto" type="text" name="iEntrarDadosDisplay_TA2000_DarumaBufferInputDisplay"/> Buffer Input Display
+
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="iEnviarDadosFormatados_TA2000_Daruma"/>
+			iEnviarDadosFormatados_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="iEnviarDadosFormatados_TA2000_DarumaBufferXML"/> Buffer XML
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="iImprimirDisplay_TA2000_Daruma"/>
+			iImprimirDisplay_TA2000_Daruma <br />
+			<textarea class="texto" name="iImprimirDisplay_TA2000_DarumaBufferDisplay"></textarea> Buffer Display
+			<input class = "texto" type="text" name="iEnviarDadosFormatados_TA2000_DarumaBufferXML"/> Linha
+			<input class = "texto" type="text" name="iEnviarDadosFormatados_TA2000_DarumaBufferXML"/> Coluna
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="iLimparDisplay_TA2000_Daruma"/>
+			iLimparDisplay_TA2000_Daruma <br />
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="iLimparDisplayLinha_TA2000_Daruma"/>
+			iLimparDisplayLinha_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="iLimparDisplayLinha_TA2000_DarumaLinha"/> Linha
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="iPosicionarCursor_TA2000_Daruma"/>
+			iPosicionarCursor_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="iPosicionarCursor_TA2000_DarumaLinha"/> Linha <br />
+			<input class = "texto" type="text" name="iPosicionarCursor_TA2000_DarumaColuna"/> Linha
+		    </li>
+		    
+		    <li id="registro">
+			<input type="radio" name="metodo" value="regADLinha_TA2000_Daruma"/>
+			regADLinha_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regADLinha_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regAELinha_TA2000_Daruma"/>
+			regAELinha_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regAELinha_TA2000_DarumaParam"/>
+
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regAuditoria_TA2000_Daruma"/>
+			regAuditoria_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regAuditoria_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regCLinha_TA2000_Daruma"/>
+			regCLinha_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regCLinha_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regEdicaoColuna_TA2000_Daruma"/>
+			regEdicaoColuna_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regEdicaoColuna_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regEdicaoEco_TA2000_Daruma"/>
+			regEdicaoEco_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regEdicaoEco_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regEdicaoESC_TA2000_Daruma"/>
+			regEdicaoESC_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regEdicaoESC_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regEdicaoLinha_TA2000_Daruma"/>
+			regEdicaoLinha_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regEdicaoLinha_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regEdicaoTamanho_TA2000_Daruma"/>
+			regEdicaoTamanho_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regEdicaoTamanho_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regEdicaoTipo_TA2000_Daruma"/>
+			regEdicaoTipo_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regEdicaoTipo_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regImprimirColuna_TA2000_Daruma"/>
+			regImprimirColuna_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regImprimirColuna_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regImprimirLinha_TA2000_Daruma"/>
+			regImprimirLinha_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regImprimirLinha_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regMarcadorOpcao_TA2000_Daruma"/>
+			regMarcadorOpcao_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regMarcadorOpcao_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regMascara_TA2000_Daruma"/>
+			regMascara_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regMascara_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regMascaraEco_TA2000_Daruma"/>
+			regMascaraEco_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regMascaraEco_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regMascaraLetra_TA2000_Daruma"/>
+			regMascaraLetra_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regMascaraLetra_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regMascaraNumero_TA2000_Daruma"/>
+			regMascaraNumero_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regMascaraNumero_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regMensagemBoasVindasLinha1_TA2000_Daruma"/>
+			regMensagemBoasVindasLinha1_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regMensagemBoasVindasLinha1_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regMensagemBoasVindasLinha2_TA2000_Daruma"/>
+			regMensagemBoasVindasLinha2_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regMensagemBoasVindasLinha2_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regMenuDirecao_TA2000_Daruma"/>
+			regMenuDirecao_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regMenuDirecao_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regMenuESC_TA2000_Daruma"/>
+			regMenuESC_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regMenuESC_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regMenuEstilo_TA2000_Daruma"/>
+			regMenuEstilo_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regMenuEstilo_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regPorta_TA2000_Daruma"/>
+			regPorta_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regPorta_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regPosColuna_TA2000_Daruma"/>
+			regPosColuna_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regPosColuna_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="regPosLinha_TA2000_Daruma"/>
+			regPosLinha_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="regPosLinha_TA2000_DarumaParam"/>
+		    </li>
+
+		    <li id="retorno">
+			<input type="radio" name="metodo" value="rLerValorCampoString_TA2000_Daruma"/>
+			rLerValorCampoString_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="rLerValorCampoString_TA2000_DarumaNumeroCampo"/> N&uacute;mero Campo
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rLerValorOpcaoCombo_TA2000_Daruma"/>
+			rLerValorOpcaoCombo_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="rLerValorOpcaoCombo_TA2000_DarumaCombo"/> Combo
+
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rLerDadoCombo_TA2000_Daruma"/>
+			rLerDadoCombo_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="rLerDadoCombo_TA2000_DarumaNumeroCombo"/> N&uacute;mero Combo
+			<input class = "texto" type="text" name="rLerDadoCombo_TA2000_DarumaDado"/> Dado
+		    </li>
+
+		    <li>
+			<input type="radio" name="metodo" value="rLerDadoCampo_TA2000_Daruma"/>
+			rLerDadoCampo_TA2000_Daruma <br />
+			<input class = "texto" type="text" name="rLerDadoCombo_TA2000_DarumaNumeroCampo"/> N&uacute;mero Campo
+			<input class = "texto" type="text" name="rLerDadoCombo_TA2000_DarumaDado"/> Dado
+		    </li>
+
+                </ul>
+
+                <input class ="submit" type="submit" value="Enviar m&eacute;todo selecionado"/>
+
+
+		<a href="../">
+		    <button>Voltar</button>
+		</a>
+
+		<div class="atalhos">
+		    <a href="#envio" title="Pula para as Fun&ccedil;&otilde;es de Envio">
+			&uarr; Envio
+		    </a>
+
+		    <a href="#impressao" title="Pula para as Fun&ccedil;&otilde;es de Impress&ati&atilde;o">
+			&uarr; Impress&atilde;o
+		    </a>
+
+		    <a href="#registro" title="Pula para as fun&ccedil;&otilde;es de Registro">
+			&uarr; Registro
+		    </a>
+
+		    <a href="#retorno" title="Pula para as fun&ccedil;&otilde;es de Retorno">
+			&uarr; Retorno
+		    </a>
+
+		</div>
+
+            </form>
+
+
+        </div>
+	
+    </body>
+</html>
